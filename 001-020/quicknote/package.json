@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://aldohsb.github.io/react",
+  "homepage": "https://aldohsb.github.io/react/001-020/quicknote/",
 
   "scripts": {
     "dev": "vite",
