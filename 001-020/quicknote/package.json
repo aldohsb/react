@@ -11,7 +11,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
       "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist"
+  "deploy": "gh-pages -d dist -r https://github.com/aldohsb/react.git -b gh-pages --dest 001-020/quicknote"
   },
   "dependencies": {
     "react": "^19.1.1",
