@@ -1,0 +1,93 @@
+/* src/components/NoteList.css */
+.note-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.note-item {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.note-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.note-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #008080; /* Teal */
+  flex-grow: 1;
+  word-break: break-word;
+}
+
+.note-content {
+  font-size: 1rem;
+  color: #555;
+  white-space: pre-wrap;
+  margin-bottom: auto;
+}
+
+.note-timestamp {
+  font-size: 0.8rem;
+  color: #aaa;
+  margin-top: 15px;
+  text-align: right;
+}
+
+.note-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.action-button {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.action-button.edit {
+  background-color: #4CAF50; /* Hijau */
+  color: white;
+}
+
+.action-button.edit:hover {
+  background-color: #45a049;
+}
+
+.action-button.delete {
+  background-color: #f44336; /* Merah */
+  color: white;
+}
+
+.action-button.delete:hover {
+  background-color: #d32f2f;
+}
+
+.no-notes-message {
+  width: 100%;
+  text-align: center;
+  color: #999;
+  font-style: italic;
+  margin-top: 50px;
+}
