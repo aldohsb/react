@@ -1,31 +1,42 @@
 // src/App.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import useLocalStorage from './hooks/useLocalStorage';
 import NoteForm from './components/NoteForm';
 import NoteList from './components/NoteList';
-import './App.css'; // File CSS untuk styling App
+import './App.css';
 
-// Komponen utama aplikasi
 const App = () => {
-  // Menggunakan custom hook useLocalStorage untuk menyimpan dan mengambil data catatan
   const [notes, setNotes] = useLocalStorage('notes', []);
+  // State untuk menyimpan catatan yang sedang diedit
+  const [noteToEdit, setNoteToEdit] = useState(null);
 
   // Fungsi untuk menambah catatan baru
   const addNote = (newNote) => {
-    // Menambahkan catatan baru ke array notes
     setNotes([newNote, ...notes]);
   };
 
   // Fungsi untuk menghapus catatan
   const deleteNote = (id) => {
-    // Filter array notes, buang catatan dengan id yang cocok
     setNotes(notes.filter((note) => note.id !== id));
   };
+
+  // Fungsi untuk memulai proses edit
+  const startEditing = (id) => {
+    const note = notes.find((n) => n.id === id);
+    setNoteToEdit(note);
+  };
+
+  // Fungsi untuk mengupdate catatan
+  const updateNote = (updatedNote) => {
+    setNotes(
+      notes.map((note) => (note.id === updatedNote.id ? updatedNote : note))
+    );
+    setNoteToEdit(null); // Keluar dari mode edit setelah update
+  };
   
-  // Note: Fungsi edit akan kita tambahkan di milestone berikutnya.
-  const editNote = (id) => {
-      // Logic untuk edit akan ditambahkan di Part 4
-      console.log(`Edit catatan dengan ID: ${id}`);
+  // Fungsi untuk membatalkan proses edit
+  const cancelEditing = () => {
+    setNoteToEdit(null);
   }
 
   return (
@@ -35,11 +46,18 @@ const App = () => {
         <p>Aplikasi catatan sederhana dengan React dan localStorage</p>
       </header>
       <main className="app-main">
-        {/* Render komponen NoteForm untuk menambahkan catatan */}
-        <NoteForm onAddNote={addNote} />
-        
-        {/* Render komponen NoteList untuk menampilkan catatan */}
-        <NoteList notes={notes} onDeleteNote={deleteNote} onEditNote={editNote} />
+        {/* Mengirim props yang berbeda tergantung mode */}
+        <NoteForm
+          onAddNote={addNote}
+          onUpdateNote={updateNote}
+          initialNote={noteToEdit}
+          onCancelEdit={cancelEditing}
+        />
+        <NoteList
+          notes={notes}
+          onDeleteNote={deleteNote}
+          onEditNote={startEditing} // Mengubah nama fungsi prop agar lebih jelas
+        />
       </main>
     </div>
   );
