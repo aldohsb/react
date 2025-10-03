@@ -1,0 +1,160 @@
+/* index.css - Base CSS yang di-import pertama kali */
+
+/* 
+  Import Google Fonts
+  - Inter: Modern sans-serif font untuk UI
+*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* 
+  CSS Custom Properties (Variables)
+  - Centralized theming values
+*/
+:root {
+  /* Typography */
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  
+  /* Font synthesis */
+  font-synthesis: none;
+  
+  /* Text rendering optimization */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /* Color scheme hint untuk browser */
+  color-scheme: light;
+}
+
+/* 
+  Base HTML styles
+*/
+html {
+  /* Box sizing border-box untuk semua elements */
+  box-sizing: border-box;
+  
+  /* Prevent font size adjustment di iOS */
+  -webkit-text-size-adjust: 100%;
+  
+  /* Tab size untuk code blocks jika ada */
+  tab-size: 4;
+}
+
+/* 
+  Body base styles
+*/
+body {
+  /* Reset margin */
+  margin: 0;
+  
+  /* Min size */
+  min-width: 320px;
+  min-height: 100vh;
+  
+  /* Display untuk modern layout */
+  display: flex;
+  flex-direction: column;
+}
+
+/* 
+  Root div untuk React
+*/
+#root {
+  /* Flex grow untuk fill available space */
+  flex: 1;
+  
+  /* Display flex untuk child components */
+  display: flex;
+  flex-direction: column;
+  
+  /* Width */
+  width: 100%;
+}
+
+/* 
+  Heading defaults
+*/
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+/* 
+  Focus styles
+  - Visible focus indicators untuk accessibility
+*/
+button:focus,
+a:focus {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* 
+  Button defaults
+*/
+button {
+  /* Border radius */
+  border-radius: 8px;
+  
+  /* Border */
+  border: 1px solid transparent;
+  
+  /* Padding */
+  padding: 0.6em 1.2em;
+  
+  /* Font */
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  
+  /* Background */
+  background-color: #f9f9f9;
+  
+  /* Cursor */
+  cursor: pointer;
+  
+  /* Transition */
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* 
+  Media query untuk dark mode preference
+  - Respect system preferences
+*/
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/* 
+  Responsive typography
+  - Fluid font scaling
+*/
+@media (max-width: 768px) {
+  :root {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,365 @@
+/* Modal Styles - Styling untuk modal zoom foto */
+
+/* 
+  Modal Backdrop
+  - Full screen overlay
+  - Semi-transparent background
+  - Flexbox untuk center content
+*/
+.modal-backdrop {
+  /* Fixed positioning untuk cover seluruh viewport */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  
+  /* Z-index tinggi untuk di atas semua content */
+  z-index: 1000;
+  
+  /* Background dengan backdrop blur (modern feature) */
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(8px);
+  
+  /* Flexbox untuk center modal content */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Padding untuk spacing */
+  padding: 20px;
+  
+  /* Smooth fade-in animation */
+  animation: fadeIn 0.3s ease;
+  
+  /* Outline none untuk focus state */
+  outline: none;
+}
+
+/* Keyframes untuk fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 
+  Modal Content Container
+  - Contains image dan info
+  - Max size dengan responsive behavior
+*/
+.modal-content {
+  /* Relative positioning untuk close button */
+  position: relative;
+  
+  /* Max dimensions */
+  max-width: 90vw;
+  max-height: 90vh;
+  
+  /* Display flex untuk layout */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  
+  /* Slide-up animation */
+  animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Keyframes untuk slide-up animation */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 
+  Close Button
+  - Positioned di top-right
+  - Accessible button styling
+*/
+.modal-close {
+  /* Positioning absolute di top-right */
+  position: absolute;
+  top: -50px;
+  right: 0;
+  
+  /* Reset button styles */
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  
+  /* Size */
+  width: 44px;
+  height: 44px;
+  
+  /* Rounded */
+  border-radius: 50%;
+  
+  /* Text styling */
+  color: white;
+  font-size: 24px;
+  line-height: 1;
+  
+  /* Cursor pointer */
+  cursor: pointer;
+  
+  /* Flexbox untuk center icon */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Smooth transition */
+  transition: all 0.2s ease;
+  
+  /* Z-index di atas content */
+  z-index: 1001;
+}
+
+/* Close button hover state */
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+}
+
+/* Close button active state */
+.modal-close:active {
+  transform: scale(0.95);
+}
+
+/* Close button focus state untuk accessibility */
+.modal-close:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.5);
+}
+
+/* 
+  Image Container
+  - Maintains aspect ratio
+  - Smooth loading
+*/
+.modal-image-container {
+  /* Relative positioning */
+  position: relative;
+  
+  /* Flexbox untuk center image */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Max dimensions */
+  max-width: 100%;
+  max-height: 70vh;
+  
+  /* Background untuk loading state */
+  background: linear-gradient(135deg, #ffeef8 0%, #e0f4ff 100%);
+  
+  /* Rounded corners */
+  border-radius: 16px;
+  
+  /* Overflow hidden */
+  overflow: hidden;
+  
+  /* Shadow untuk depth */
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* 
+  Modal Image
+  - Responsive sizing
+  - Smooth transitions
+*/
+.modal-image {
+  /* Max dimensions untuk responsive */
+  max-width: 100%;
+  max-height: 70vh;
+  
+  /* Width auto untuk maintain aspect ratio */
+  width: auto;
+  height: auto;
+  
+  /* Display block */
+  display: block;
+  
+  /* Object fit contain untuk show full image */
+  object-fit: contain;
+  
+  /* Smooth fade-in */
+  animation: imageZoomIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Keyframes untuk image zoom-in animation */
+@keyframes imageZoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 
+  Modal Info Section
+  - Title dan description di bawah image
+*/
+.modal-info {
+  /* Text alignment */
+  text-align: center;
+  
+  /* Text color */
+  color: white;
+  
+  /* Padding */
+  padding: 0 20px;
+  
+  /* Animation */
+  animation: fadeInUp 0.4s ease 0.1s backwards;
+}
+
+/* Keyframes untuk fade-in-up animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 
+  Modal Title
+*/
+.modal-title {
+  /* Reset margin */
+  margin: 0 0 8px 0;
+  
+  /* Font styling */
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.3;
+  
+  /* Text shadow untuk readability */
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* 
+  Modal Description
+*/
+.modal-description {
+  /* Reset margin */
+  margin: 0;
+  
+  /* Font styling */
+  font-size: 16px;
+  line-height: 1.6;
+  
+  /* Opacity sedikit lebih rendah */
+  opacity: 0.85;
+  
+  /* Text shadow untuk readability */
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* 
+  Modal Hint
+  - Instruction untuk user (ESC to close)
+*/
+.modal-hint {
+  /* Text styling */
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  
+  /* Animation dengan delay */
+  animation: fadeIn 0.4s ease 0.2s backwards;
+}
+
+/* 
+  Responsive Design untuk Mobile
+*/
+@media (max-width: 768px) {
+  .modal-backdrop {
+    padding: 16px;
+  }
+  
+  .modal-content {
+    gap: 16px;
+  }
+  
+  .modal-close {
+    /* Position di dalam viewport untuk mobile */
+    top: 10px;
+    right: 10px;
+    
+    /* Slightly smaller */
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+  
+  .modal-image-container {
+    max-height: 60vh;
+    border-radius: 12px;
+  }
+  
+  .modal-image {
+    max-height: 60vh;
+  }
+  
+  .modal-title {
+    font-size: 22px;
+  }
+  
+  .modal-description {
+    font-size: 14px;
+  }
+  
+  .modal-hint {
+    font-size: 12px;
+  }
+}
+
+/* 
+  Responsive Design untuk Tablet
+*/
+@media (min-width: 769px) and (max-width: 1024px) {
+  .modal-image-container {
+    max-height: 65vh;
+  }
+  
+  .modal-image {
+    max-height: 65vh;
+  }
+  
+  .modal-title {
+    font-size: 24px;
+  }
+}
+
+/* 
+  Support untuk landscape orientation di mobile
+*/
+@media (max-width: 768px) and (orientation: landscape) {
+  .modal-image-container {
+    max-height: 75vh;
+  }
+  
+  .modal-image {
+    max-height: 75vh;
+  }
+  
+  .modal-info {
+    padding: 0 10px;
+  }
+}

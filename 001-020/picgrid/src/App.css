@@ -1,0 +1,308 @@
+/* Global Styles untuk PicGrid App */
+
+/* 
+  CSS Reset dan Base Styles
+  - Reset default browser styles
+  - Set base typography
+*/
+
+/* 
+  Universal Box Sizing
+  - Membuat sizing lebih predictable
+  - Border dan padding included dalam width/height
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 
+  Root Element Styles
+*/
+:root {
+  /* Font family variables */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 
+                  'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 
+                  'Droid Sans', 'Helvetica Neue', sans-serif;
+  
+  /* Color variables untuk consistent theming */
+  --color-primary: #667eea;
+  --color-secondary: #764ba2;
+  --color-text: #1e293b;
+  --color-text-light: #64748b;
+  
+  /* Spacing scale */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  
+  /* Border radius scale */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  
+  /* Shadow scale */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+}
+
+/* 
+  Body Reset
+*/
+body {
+  /* Reset margin dan padding */
+  margin: 0;
+  padding: 0;
+  
+  /* Font styling */
+  font-family: var(--font-primary);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text);
+  
+  /* Anti-aliasing untuk smooth fonts */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /* Smooth scrolling (modern feature) */
+  scroll-behavior: smooth;
+}
+
+/* 
+  Remove default margin dari heading dan paragraph
+*/
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+}
+
+/* 
+  App Container
+  - Main wrapper untuk aplikasi
+*/
+.app {
+  /* Min height untuk full viewport */
+  min-height: 100vh;
+  
+  /* Display flex untuk layout (future-proof) */
+  display: flex;
+  flex-direction: column;
+}
+
+/* 
+  Button Reset
+  - Reset default button styles untuk custom styling
+*/
+button {
+  /* Reset appearance */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  
+  /* Reset border */
+  border: none;
+  
+  /* Reset background */
+  background: none;
+  
+  /* Inherit font */
+  font-family: inherit;
+  font-size: inherit;
+  
+  /* Remove default focus outline (akan diganti dengan custom) */
+  outline: none;
+  
+  /* Cursor pointer untuk indicate clickable */
+  cursor: pointer;
+}
+
+/* 
+  Link Reset
+*/
+a {
+  /* Inherit color */
+  color: inherit;
+  
+  /* Remove underline */
+  text-decoration: none;
+}
+
+/* 
+  Image Reset
+*/
+img {
+  /* Max width untuk responsive */
+  max-width: 100%;
+  
+  /* Display block untuk remove inline spacing */
+  display: block;
+  
+  /* Height auto untuk maintain aspect ratio */
+  height: auto;
+}
+
+/* 
+  Selection Styling
+  - Custom text selection color
+*/
+::selection {
+  background: rgba(102, 126, 234, 0.2);
+  color: var(--color-text);
+}
+
+::-moz-selection {
+  background: rgba(102, 126, 234, 0.2);
+  color: var(--color-text);
+}
+
+/* 
+  Scrollbar Styling (Webkit browsers)
+  - Custom scrollbar untuk modern look
+*/
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 6px;
+  border: 3px solid #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* 
+  Focus Visible
+  - Modern focus styles untuk accessibility
+  - Hanya muncul saat keyboard navigation
+*/
+:focus-visible {
+  outline: 3px solid rgba(102, 126, 234, 0.5);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* 
+  Utility Classes
+  - Helper classes untuk common patterns
+*/
+
+/* Screen reader only (accessibility) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Hide element visually but keep in DOM */
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
+/* 
+  Loading Animation
+  - Global loading spinner jika diperlukan
+*/
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+/* 
+  Print Styles
+  - Optimized untuk printing
+*/
+@media print {
+  body {
+    background: white;
+  }
+  
+  .modal-backdrop {
+    display: none;
+  }
+  
+  .photo-card__overlay {
+    transform: translateY(0);
+  }
+}
+
+/* 
+  Reduced Motion
+  - Respect user's motion preferences (accessibility)
+  - Disable animations untuk users dengan motion sensitivity
+*/
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 
+  Dark Mode Support (optional, future enhancement)
+  - Prep untuk dark mode jika diperlukan
+*/
+@media (prefers-color-scheme: dark) {
+  /* Uncomment untuk enable dark mode */
+  /*
+  :root {
+    --color-text: #f1f5f9;
+    --color-text-light: #cbd5e1;
+  }
+  
+  body {
+    background: #0f172a;
+    color: var(--color-text);
+  }
+  */
+}
+
+/* 
+  High Contrast Mode (accessibility)
+  - Enhanced contrast untuk better readability
+*/
+@media (prefers-contrast: high) {
+  :root {
+    --color-text: #000000;
+    --color-text-light: #333333;
+  }
+  
+  .photo-card {
+    border: 2px solid #000000;
+  }
+}
