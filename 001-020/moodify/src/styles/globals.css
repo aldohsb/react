@@ -1,0 +1,577 @@
+/* src/styles/globals.css */
+
+/* ========================================
+   CSS VARIABLES (Custom Properties)
+   ======================================== */
+/* 
+  CSS Variables ini akan diubah secara dinamis oleh JavaScript
+  ketika user memilih mood yang berbeda.
+  Ini adalah inti dari sistem theming yang responsif.
+*/
+:root {
+  /* Color variables - akan diubah oleh MoodContext */
+  --color-primary: #00D9FF;
+  --color-secondary: #0099CC;
+  --color-glow: #00D9FF;
+  --color-background: #0a0a0a;
+  --color-card-bg: #1a1a1a;
+  
+  /* Fixed colors untuk elemen yang tidak berubah */
+  --color-text: #ffffff;
+  --color-text-dim: #a0a0a0;
+  
+  /* Spacing system */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  
+  /* Border radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  
+  /* Transitions - smooth animations */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* ========================================
+   RESET & BASE STYLES
+   ======================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* Gunakan CSS variable untuk background */
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  /* Smooth transition ketika theme berubah */
+  transition: background-color var(--transition-slow);
+  min-height: 100vh;
+}
+
+/* ========================================
+   APP CONTAINER
+   ======================================== */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-lg);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ========================================
+   HEADER STYLES
+   ======================================== */
+.header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  /* Animasi saat pertama muncul */
+  animation: fadeInDown 0.6s ease;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.logo-text {
+  font-size: 3rem;
+  font-weight: 800;
+  /* Gradient text dengan warna theme */
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  /* Clip gradient ke text */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* Neon glow effect */
+  filter: drop-shadow(0 0 30px var(--color-glow));
+  /* Smooth transition saat theme berubah */
+  transition: filter var(--transition-normal);
+}
+
+.logo-emoji {
+  font-size: 3rem;
+  /* Smooth scale animation */
+  animation: bounce 2s infinite;
+}
+
+.tagline {
+  color: var(--color-text-dim);
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ========================================
+   MAIN CONTENT
+   ======================================== */
+.main-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-grid {
+  display: grid;
+  /* 2 kolom dengan lebar yang sama */
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-xl);
+  width: 100%;
+  /* Animasi saat pertama muncul */
+  animation: fadeInUp 0.6s ease 0.2s both;
+}
+
+/* Responsive: 1 kolom di mobile */
+@media (max-width: 968px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+}
+
+/* ========================================
+   SECTION TITLE
+   ======================================== */
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+  /* Text glow effect */
+  text-shadow: 0 0 20px var(--color-glow);
+  transition: color var(--transition-normal), 
+              text-shadow var(--transition-normal);
+}
+
+/* ========================================
+   MOOD SELECTOR STYLES
+   ======================================== */
+.mood-selector {
+  padding: var(--spacing-lg);
+}
+
+.mood-grid {
+  display: grid;
+  /* 2 kolom di desktop */
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+}
+
+/* Responsive mood grid */
+@media (max-width: 768px) {
+  .mood-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .mood-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========================================
+   MOOD BUTTON STYLES
+   ======================================== */
+.mood-button {
+  /* Position relative untuk absolute positioning glow */
+  position: relative;
+  /* Flexbox untuk center content */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  /* Styling */
+  padding: var(--spacing-lg);
+  background-color: var(--color-card-bg);
+  border: 2px solid transparent;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  /* Smooth transitions */
+  transition: all var(--transition-normal);
+  /* Remove default button styles */
+  font-family: inherit;
+  color: var(--color-text);
+  /* Minimum height untuk consistency */
+  min-height: 140px;
+}
+
+/* Hover effect */
+.mood-button:hover {
+  /* Transform untuk scale up */
+  transform: translateY(-5px) scale(1.05);
+  /* Border dengan warna primary */
+  border-color: var(--color-primary);
+  /* Box shadow dengan glow */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5),
+              0 0 30px var(--color-glow);
+}
+
+/* Active state - ketika mood sedang dipilih */
+.mood-button.active {
+  /* Border dengan warna primary */
+  border-color: var(--color-primary);
+  /* Background lebih terang */
+  background-color: rgba(255, 255, 255, 0.05);
+  /* Glow effect kuat */
+  box-shadow: 0 0 40px var(--color-glow),
+              inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Focus state untuk accessibility */
+.mood-button:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1);
+}
+
+.mood-emoji {
+  font-size: 3rem;
+  /* Smooth transition */
+  transition: transform var(--transition-normal);
+}
+
+/* Emoji scale up saat hover */
+.mood-button:hover .mood-emoji {
+  transform: scale(1.2);
+}
+
+.mood-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Glow effect circle untuk active button */
+.mood-glow {
+  position: absolute;
+  /* Center positioning */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Size */
+  width: 100px;
+  height: 100px;
+  /* Glow styling */
+  background: radial-gradient(
+    circle,
+    var(--color-glow) 0%,
+    transparent 70%
+  );
+  /* Behind content */
+  z-index: -1;
+  /* Pulse animation */
+  animation: pulse 2s infinite;
+  /* Smooth transition */
+  transition: background var(--transition-normal);
+}
+
+/* ========================================
+   MOOD DISPLAY STYLES
+   ======================================== */
+.mood-display {
+  padding: var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.display-card {
+  /* Position relative untuk absolute children */
+  position: relative;
+  /* Full width dengan max */
+  width: 100%;
+  max-width: 500px;
+  /* Padding */
+  padding: var(--spacing-xl);
+  /* Styling */
+  background-color: var(--color-card-bg);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-lg);
+  /* Center text */
+  text-align: center;
+  /* Glow effect */
+  box-shadow: 0 0 50px var(--color-glow),
+              inset 0 0 30px rgba(255, 255, 255, 0.05);
+  /* Smooth transitions */
+  transition: all var(--transition-normal);
+  /* Stack context */
+  overflow: hidden;
+}
+
+.display-emoji {
+  font-size: 6rem;
+  margin-bottom: var(--spacing-md);
+  /* Scale animation */
+  animation: scaleIn 0.5s ease;
+}
+
+.display-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text);
+}
+
+/* Highlight text dengan primary color */
+.highlight {
+  color: var(--color-primary);
+  /* Text glow */
+  text-shadow: 0 0 20px var(--color-glow);
+  transition: color var(--transition-normal),
+              text-shadow var(--transition-normal);
+}
+
+.display-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color-text-dim);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* ========================================
+   COLOR INDICATORS
+   ======================================== */
+.color-indicators {
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-lg);
+  /* Border top dengan primary color */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.color-label {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-text-dim);
+  margin-bottom: var(--spacing-sm);
+}
+
+.color-swatches {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+}
+
+.color-swatch {
+  /* Size */
+  width: 60px;
+  height: 60px;
+  /* Styling */
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  /* Smooth transitions */
+  transition: all var(--transition-normal);
+  /* Cursor */
+  cursor: pointer;
+}
+
+/* Hover effect pada color swatch */
+.color-swatch:hover {
+  transform: scale(1.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* ========================================
+   PULSE BACKGROUND EFFECT
+   ======================================== */
+.pulse-bg {
+  /* Absolute positioning */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Size */
+  width: 300px;
+  height: 300px;
+  /* Glow styling */
+  background: radial-gradient(
+    circle,
+    var(--color-glow) 0%,
+    transparent 70%
+  );
+  /* Behind everything */
+  z-index: -1;
+  /* Opacity */
+  opacity: 0.3;
+  /* Pulse animation */
+  animation: pulse 3s infinite;
+  /* Smooth transition */
+  transition: background var(--transition-slow);
+}
+
+/* ========================================
+   FOOTER STYLES
+   ======================================== */
+.footer {
+  text-align: center;
+  padding: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+  color: var(--color-text-dim);
+  font-size: 0.9rem;
+}
+
+.heart {
+  color: var(--color-primary);
+  /* Pulse animation untuk heart */
+  animation: heartBeat 1.5s infinite;
+  display: inline-block;
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+/* Fade in from top */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade in from bottom */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scale in animation */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Bounce animation untuk emoji */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Pulse animation untuk glow effects */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+/* Heart beat animation */
+@keyframes heartBeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30% {
+    transform: scale(1.2);
+  }
+  20%, 40% {
+    transform: scale(1);
+  }
+}
+
+/* ========================================
+   RESPONSIVE TYPOGRAPHY
+   ======================================== */
+@media (max-width: 768px) {
+  .logo-text {
+    font-size: 2.5rem;
+  }
+  
+  .logo-emoji {
+    font-size: 2.5rem;
+  }
+  
+  .tagline {
+    font-size: 0.9rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .display-emoji {
+    font-size: 4rem;
+  }
+  
+  .display-title {
+    font-size: 1.5rem;
+  }
+  
+  .display-description {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-container {
+    padding: var(--spacing-sm);
+  }
+  
+  .logo-text {
+    font-size: 2rem;
+  }
+  
+  .logo-emoji {
+    font-size: 2rem;
+  }
+  
+  .mood-button {
+    min-height: 120px;
+    padding: var(--spacing-md);
+  }
+  
+  .mood-emoji {
+    font-size: 2.5rem;
+  }
+  
+  .display-card {
+    padding: var(--spacing-lg);
+  }
+}
