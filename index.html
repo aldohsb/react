@@ -1,247 +1,449 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My App Index • 200 React & Next.js Projects</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;800&family=Zen+Kurenaido&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>200 Proyek Belajar React Next.js</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ebe8 100%);
+            color: #2c3e50;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #2c5f2d;
+            margin-bottom: 10px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            color: #6c7a89;
+            font-style: italic;
+        }
+
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 15px;
+        }
+
+        .filter-btn {
+            padding: 12px 24px;
+            border: 2px solid #97c593;
+            background: white;
+            color: #2c5f2d;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+            font-family: 'Georgia', serif;
+        }
+
+        .filter-btn:hover {
+            background: #97c593;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(151, 197, 147, 0.3);
+        }
+
+        .filter-btn.active {
+            background: #2c5f2d;
+            color: white;
+            border-color: #2c5f2d;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(151, 197, 147, 0.2);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(44, 95, 45, 0.15);
+            border-color: #97c593;
+        }
+
+        .project-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #97c593, #2c5f2d);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-bottom: 12px;
+            font-weight: bold;
+        }
+
+        .project-title {
+            font-size: 1.3em;
+            color: #2c5f2d;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .project-description {
+            font-size: 0.95em;
+            color: #5f6c7b;
+            margin-bottom: 8px;
+        }
+
+        .project-tech {
+            font-size: 0.85em;
+            color: #95a5a6;
+            font-style: italic;
+        }
+
+        @media (max-width: 900px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 1.5em;
+            }
+            
+            .filter-btn {
+                font-size: 0.85em;
+                padding: 10px 18px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- Decorative background layers -->
-  <div class="bg-layer gradient"></div>
-  <div class="bg-layer circles"></div>
-  <div class="bg-layer gridlines"></div>
+    <div class="container">
+        <header>
+            <h1>200 Proyek Belajar React dan Next.js</h1>
+            <p class="subtitle">Perjalanan Pembelajaran menuju Professional React Developer</p>
+        </header>
 
-  <header class="site-header">
-    <div class="title-wrap">
-      <h1>Aldohas React & Next.js Projects Index </h1>
-      <p class="subtitle">200 React & Next.js projects • Where Every Project is a Pebble in the Path to Mastery.</p>
+        <div class="filter-container">
+            <button class="filter-btn active" data-range="all">Semua Proyek</button>
+            <button class="filter-btn" data-range="1-40">Proyek 1-40</button>
+            <button class="filter-btn" data-range="41-80">Proyek 41-80</button>
+            <button class="filter-btn" data-range="81-120">Proyek 81-120</button>
+            <button class="filter-btn" data-range="121-160">Proyek 121-160</button>
+            <button class="filter-btn" data-range="161-200">Proyek 161-200</button>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid"></div>
     </div>
-  </header>
 
-  <main class="container">
-    <section class="toolbar">
-      <div class="search-wrap">
-        <input id="search" type="search" placeholder="Cari proyek… (contoh: chat, note, glow)" aria-label="Search projects" />
-      </div>
-      <div class="legend">
-        <span class="dot olive"></span>Olive
-        <span class="dot amber"></span>Amber
-        <span class="dot stone"></span>Stone
-      </div>
-    </section>
+    <script>
+const projects = [
+    { num: 1, name: "QuickNote", desc: "Aplikasi catatan CRUD sederhana", tech: "React hooks dan localStorage", folder: "quicknote" },
+    { num: 2, name: "PicGrid", desc: "Gallery foto dengan modal zoom", tech: "useState/useEffect dan CSS Grid", folder: "picgrid" },
+    { num: 3, name: "Moodify", desc: "Dark neon yang berubah warna sesuai mood", tech: "Context API dan CSS variables", folder: "moodify" },
+    { num: 4, name: "TaskZen", desc: "To-do list dengan filter dan mark complete", tech: "React hooks dan Zustand", folder: "taskzen" },
+    { num: 5, name: "QuoteSpark", desc: "Menampilkan random quote setiap klik", tech: "Fetch API, async/await", folder: "quotespark" },
+    { num: 6, name: "Weatherly", desc: "Cek cuaca kota dengan input nama kota", tech: "OpenWeather API", folder: "weatherly" },
+    { num: 7, name: "TimeTrackr", desc: "Timer, stopwatch, dan lap time", tech: "Custom hooks, useReducer", folder: "timetrackr" },
+    { num: 8, name: "FlashLearn", desc: "Flashcard untuk belajar kata/definisi", tech: "Animasi flip dengan Framer Motion", folder: "flashlearn" },
+    { num: 9, name: "BudgetBuddy", desc: "Pencatat pengeluaran dan visualisasi grafik", tech: "Context API dan Chart.js", folder: "budgetbuddy" },
+    { num: 10, name: "RecipeNest", desc: "Pencarian resep masakan + pagination", tech: "Fetch API dan pencarian keyword", folder: "recipenest" },
+    { num: 11, name: "MovieRadar", desc: "Pencarian film, rating, dan detail poster", tech: "TMDb API dan React Router", folder: "movieradar" },
+    { num: 12, name: "SoundWave", desc: "Pemutar audio playlist sederhana", tech: "HTML5 Audio API", folder: "soundwave" },
+    { num: 13, name: "BookHaven", desc: "Koleksi buku favorit dengan filter genre", tech: "React Router dan pencarian", folder: "bookhaven" },
+    { num: 14, name: "ShopLite", desc: "Mini toko online dengan keranjang belanja", tech: "Context API, localStorage cart", folder: "shoplite" },
+    { num: 15, name: "BlogSphere", desc: "Blog personal dengan markdown", tech: "Next.js SSG dan MDX", folder: "blogsphere" },
+    { num: 16, name: "Eventia", desc: "Jadwal event dan RSVP online", tech: "Next.js dynamic routing", folder: "eventia" },
+    { num: 17, name: "Portfolia", desc: "Portfolio pribadi yang bisa diupdate mudah", tech: "Next.js ISR dan Tailwind CSS", folder: "portfolia" },
+    { num: 18, name: "ChatBreeze", desc: "Aplikasi chat real-time sederhana", tech: "Firebase Realtime Database", folder: "chatbreeze" },
+    { num: 19, name: "PollSpark", desc: "Polling online dengan hasil live", tech: "Supabase Realtime subscription", folder: "pollspark" },
+    { num: 20, name: "SnapBoard", desc: "Task board dengan drag-and-drop", tech: "React Beautiful DnD", folder: "snapboard" },
+    { num: 21, name: "TaskHive", desc: "Aplikasi manajemen proyek multi-user", tech: "Next.js API Routes, MongoDB, JWT", folder: "taskhive" },
+    { num: 22, name: "FeedCast", desc: "Platform agregator podcast", tech: "Next.js Server Components", folder: "feedcast" },
+    { num: 23, name: "PhotoForge", desc: "Editor foto sederhana dengan filter", tech: "React Canvas API, Web Workers", folder: "photoforge" },
+    { num: 24, name: "StudySync", desc: "Dashboard belajar online dengan progress", tech: "Next.js App Router, Prisma", folder: "studysync" },
+    { num: 25, name: "CryptoPulse", desc: "Pantau harga crypto real-time", tech: "WebSocket live data, Chart.js", folder: "cryptopulse" },
+    { num: 26, name: "Trendify", desc: "Aplikasi microblogging seperti Twitter mini", tech: "Supabase Realtime, infinite scroll", folder: "trendify" },
+    { num: 27, name: "MealMaster", desc: "Generator meal plan mingguan", tech: "Next.js ISR, caching API", folder: "mealmaster" },
+    { num: 28, name: "StreamBox", desc: "Platform streaming film gratis", tech: "HLS video streaming", folder: "streambox" },
+    { num: 29, name: "GoalTrack", desc: "Aplikasi goal-setting dengan grafik", tech: "Zustand + Persist, Chart.js", folder: "goaltrack" },
+    { num: 30, name: "Artfolio", desc: "Marketplace karya seni", tech: "Next.js API, Stripe payment", folder: "artfolio" },
+    { num: 31, name: "FitBuddy", desc: "Tracker aktivitas olahraga", tech: "Next.js API, d3.js charts", folder: "fitbuddy" },
+    { num: 32, name: "ReadNest", desc: "Aplikasi baca artikel dengan highlight", tech: "Next.js Server Actions", folder: "readnest" },
+    { num: 33, name: "CollabDocs", desc: "Editor dokumen real-time multiuser", tech: "WebRTC + CRDT (Y.js)", folder: "collabdocs" },
+    { num: 34, name: "JobScout", desc: "Portal lowongan kerja dengan filter", tech: "Next.js Dynamic Routing, ElasticSearch", folder: "jobscout" },
+    { num: 35, name: "SoundSphere", desc: "Streaming musik + playlist personal", tech: "Next.js Edge Functions, HLS", folder: "soundsphere" },
+    { num: 36, name: "MarketSnap", desc: "Marketplace produk digital", tech: "Next.js App Router, Stripe Connect", folder: "marketsnap" },
+    { num: 37, name: "VoteChain", desc: "Voting online berbasis blockchain", tech: "Next.js + web3.js, MetaMask", folder: "votechain" },
+    { num: 38, name: "LangMate", desc: "Platform pertukaran bahasa dengan chat", tech: "WebRTC video call, Next.js API", folder: "langmate" },
+    { num: 39, name: "InspireBoard", desc: "Whiteboard kolaboratif dengan drawing", tech: "Canvas API, WebSocket server", folder: "inspireboard" },
+    { num: 40, name: "DataVision", desc: "Platform analitik data interaktif", tech: "Next.js Server Components, d3.js", folder: "datavision" },
+    { num: 41, name: "Planora", desc: "Aplikasi kalender bersama untuk tim", tech: "Next.js API Routes, Prisma", folder: "planora" },
+    { num: 42, name: "LinkLab", desc: "Shortlink manager dengan statistik", tech: "Next.js ISR, Chart.js analytics", folder: "linklab" },
+    { num: 43, name: "NewsFlux", desc: "Portal berita realtime dengan kategori", tech: "Server-Sent Events, Redis cache", folder: "newsflux" },
+    { num: 44, name: "SkillMatch", desc: "Platform mentoring dengan jadwal sesi", tech: "Next.js App Router, Stripe payment", folder: "skillmatch" },
+    { num: 45, name: "PixShare", desc: "Social photo sharing dengan like & comment", tech: "Supabase Storage, Realtime", folder: "pixshare" },
+    { num: 46, name: "CodeCamp", desc: "Platform kursus coding dengan video", tech: "Next.js dynamic routes, MDX", folder: "codecamp" },
+    { num: 47, name: "PetPal", desc: "Aplikasi adopsi hewan dengan peta", tech: "Next.js Mapbox integration", folder: "petpal" },
+    { num: 48, name: "QuizRush", desc: "Platform kuis multiplayer realtime", tech: "WebSocket (Socket.io)", folder: "quizrush" },
+    { num: 49, name: "EventLoop", desc: "Ticketing event dengan QR check-in", tech: "Next.js Server Actions, Stripe", folder: "eventloop" },
+    { num: 50, name: "StreamTalk", desc: "Live video + chat interaktif", tech: "WebRTC video, WebSocket chat", folder: "streamtalk" },
+    { num: 51, name: "TasteTrail", desc: "Aplikasi review restoran", tech: "Next.js API, Prisma, Cloudinary", folder: "tastetrail" },
+    { num: 52, name: "BudgetWise", desc: "Manajemen anggaran bulanan multi-user", tech: "Zustand global state, Next.js SSR", folder: "budgetwise" },
+    { num: 53, name: "TrackFit", desc: "Tracker aktivitas harian + integrasi", tech: "Next.js API, OAuth2, Chart.js", folder: "trackfit" },
+    { num: 54, name: "IdeaForge", desc: "Tempat berbagi ide/startup dan voting", tech: "Supabase Realtime, role-based auth", folder: "ideaforge" },
+    { num: 55, name: "NoteSphere", desc: "Catatan markdown dengan folder & tag", tech: "Next.js App Router, MDX editor", folder: "notesphere" },
+    { num: 56, name: "HireBoard", desc: "Job board dengan fitur posting & apply", tech: "Next.js SSG + ISR, Elastic", folder: "hireboard" },
+    { num: 57, name: "MoodCast", desc: "Rekomendasi playlist berdasarkan cuaca", tech: "Spotify API + Weather API", folder: "moodcast" },
+    { num: 58, name: "TradeMate", desc: "Simulasi trading saham real-time", tech: "WebSocket live quotes, Redux", folder: "trademate" },
+    { num: 59, name: "TaskFleet", desc: "Manajemen proyek perusahaan", tech: "Next.js App Router, Prisma", folder: "taskfleet" },
+    { num: 60, name: "EcoTrack", desc: "Aplikasi pelacak jejak karbon", tech: "Next.js API, d3.js visualisasi", folder: "ecotrack" },
+    { num: 61, name: "GrowList", desc: "Daftar belanja yang bisa di-share", tech: "Next.js App Router, Supabase", folder: "growlist" },
+    { num: 62, name: "FocusMate", desc: "Pomodoro timer + catatan progres", tech: "Zustand persistent state, PWA", folder: "focusmate" },
+    { num: 63, name: "PlanStack", desc: "Roadmap manajemen produk", tech: "Next.js API, Prisma PostgreSQL", folder: "planstack" },
+    { num: 64, name: "CityRide", desc: "Booking kendaraan bike/scooter sharing", tech: "Mapbox maps, geolocation API", folder: "cityride" },
+    { num: 65, name: "CookBox", desc: "Buat & bagikan kotak resep pribadi", tech: "Next.js ISR, Cloudinary", folder: "cookbox" },
+    { num: 66, name: "WatchWave", desc: "Platform review film dan rekomendasi", tech: "Next.js Server Components, TMDb", folder: "watchwav" },
+    { num: 67, name: "FitTrack", desc: "Pelacak latihan gym dengan grafik", tech: "Next.js API Routes, Chart.js", folder: "fittrack" },
+    { num: 68, name: "TaskBloom", desc: "To-do list multi-proyek dengan reminder", tech: "Next.js Server Actions, Nodemailer", folder: "taskbloom" },
+    { num: 69, name: "MindMappr", desc: "Buat mind map interaktif", tech: "Canvas API, Zustand store", folder: "mindmappr" },
+    { num: 70, name: "PhotoMint", desc: "Jual foto stock dengan sistem pembayaran", tech: "Next.js API, Stripe Checkout", folder: "photomint" },
+    { num: 71, name: "BookNest", desc: "Pinjam buku online komunitas lokal", tech: "Prisma relational DB, NextAuth", folder: "booknest" },
+    { num: 72, name: "SkillForge", desc: "Platform kursus dengan video", tech: "Next.js dynamic routes, HLS", folder: "skillforge" },
+    { num: 73, name: "ClipCast", desc: "Upload & dengarkan podcast komunitas", tech: "Next.js API, audio streaming", folder: "clipcast" },
+    { num: 74, name: "Meetly", desc: "Booking ruang meeting dan kalender", tech: "Google Calendar API, Auth0", folder: "meetly" },
+    { num: 75, name: "StockScope", desc: "Analisis saham dan watchlist pribadi", tech: "WebSocket real-time, Chart.js", folder: "stockscope" },
+    { num: 76, name: "Travelog", desc: "Catatan perjalanan dengan foto & peta", tech: "Mapbox, Next.js SSG", folder: "travelog" },
+    { num: 77, name: "VoiceRoom", desc: "Audio chat room real-time", tech: "WebRTC audio, WebSocket chat", folder: "voiceroom" },
+    { num: 78, name: "Plantopia", desc: "Marketplace tanaman hias dengan lelang", tech: "Next.js App Router, Prisma, Stripe", folder: "plantopia" },
+    { num: 79, name: "TaskLink", desc: "Integrasi to-do list dengan Google Tasks", tech: "OAuth2, Next.js API Routes", folder: "tasklink" },
+    { num: 80, name: "StreamChat", desc: "Live chat dengan moderator dan badge", tech: "Supabase Realtime, role-based auth", folder: "streamchat" },
+    { num: 81, name: "IdeaVault", desc: "Simpan ide rahasia dengan enkripsi", tech: "Next.js API, crypto Web APIs", folder: "ideavault" },
+    { num: 82, name: "HealthSync", desc: "Catatan kesehatan keluarga multi-user", tech: "Next.js Server Actions, Prisma", folder: "healthsync" },
+    { num: 83, name: "QuizArena", desc: "Kuis kompetisi real-time dengan scoreboard", tech: "WebSocket live updates, Zustand", folder: "quizarena" },
+    { num: 84, name: "EventMap", desc: "Peta interaktif event musik", tech: "Mapbox layers, clustering", folder: "eventmap" },
+    { num: 85, name: "RentSpace", desc: "Sewa ruangan/office dengan booking", tech: "Prisma DB, NextAuth, Stripe", folder: "rentspace" },
+    { num: 86, name: "FoodRush", desc: "Pemesanan makanan real-time", tech: "Next.js API, WebSocket tracking", folder: "foodrush" },
+    { num: 87, name: "LearnHub", desc: "Forum diskusi materi belajar", tech: "Next.js App Router, Prisma", folder: "learnhub" },
+    { num: 88, name: "GameRank", desc: "Ranking turnamen e-sport live", tech: "WebSocket, d3.js charts", folder: "gamerank" },
+    { num: 89, name: "SnapTask", desc: "Catat tugas dengan screenshot", tech: "Next.js API, Cloudinary", folder: "snaptask" },
+    { num: 90, name: "DevFeed", desc: "Aggregator berita developer", tech: "Next.js SSG + ISR, Algolia", folder: "devfeed" },
+    { num: 91, name: "MindJournal", desc: "Jurnal harian dengan analisis mood", tech: "Sentiment analysis API, Chart.js", folder: "mindjournal" },
+    { num: 92, name: "TrendCast", desc: "Dashboard tren sosial media", tech: "Twitter API v2, Redis caching", folder: "trendcast" },
+    { num: 93, name: "FitMeal", desc: "Rencana makan + perhitungan kalori", tech: "Next.js API, Prisma DB", folder: "fitmeal" },
+    { num: 94, name: "PhotoNest", desc: "Album foto privat dengan share link", tech: "Supabase Storage, signed URL", folder: "photonest" },
+    { num: 95, name: "HireFast", desc: "Platform rekrut cepat dengan AI", tech: "Next.js, OpenAI API", folder: "hirefast" },
+    { num: 96, name: "StreamNote", desc: "Catatan musik sinkron dengan Spotify", tech: "Spotify API, Realtime lyrics", folder: "streamnote" },
+    { num: 97, name: "EcoBuy", desc: "Marketplace produk ramah lingkungan", tech: "Next.js App Router, Stripe", folder: "ecobuy" },
+    { num: 98, name: "TaskLoop", desc: "Sistem tugas berulang otomatis", tech: "Next.js Cron job, Zustand", folder: "taskloop" },
+    { num: 99, name: "QuizMate", desc: "Generator kuis custom untuk guru", tech: "Next.js API, export PDF", folder: "quizmate" },
+    { num: 100, name: "DataSnap", desc: "Upload CSV lalu visualisasi data", tech: "Next.js, d3.js, Papaparse", folder: "datasnap" },
+    { num: 101, name: "PixelBloom", desc: "Galeri seni piksel dengan editor", tech: "Canvas API, Next.js API", folder: "pixelbloom" },
+    { num: 102, name: "AuroraPay", desc: "Dompet digital dengan transaksi", tech: "Prisma, Stripe Connect", folder: "aurorapay" },
+    { num: 103, name: "WaveSpace", desc: "Forum diskusi tema laut", tech: "Framer Motion, Supabase Realtime", folder: "wavespace" },
+    { num: 104, name: "InkNote", desc: "Catatan markdown dengan brush font", tech: "MDX editor, offline PWA", folder: "inknote" },
+    { num: 105, name: "NeonArcade", desc: "Portal game HTML5 mini", tech: "WebSocket leaderboard", folder: "neonarcade" },
+    { num: 106, name: "GlowChat", desc: "Chat real-time dengan efek glass", tech: "Supabase Realtime, CSS glass", folder: "glowchat" },
+    { num: 107, name: "OrbitJobs", desc: "Job board dengan visual orbit", tech: "d3.js orbit visualization", folder: "orbitjobs" },
+    { num: 108, name: "BentoStore", desc: "Marketplace template digital", tech: "Next.js, Stripe, Grid masonry", folder: "bentostore" },
+    { num: 109, name: "ZenGarden", desc: "Tracker kebiasaan mindfulness", tech: "Prisma DB, animated SVG", folder: "zengarden" },
+    { num: 110, name: "ColorChord", desc: "Generator palet warna berbasis musik", tech: "Web Audio API, color math", folder: "colorchord" },
+    { num: 111, name: "DreamLens", desc: "Platform berbagi mimpi & interpretasi", tech: "Next.js API, OpenAI API", folder: "dreamlens" },
+    { num: 112, name: "GlyphBoard", desc: "Galeri font dan tester teks", tech: "WebFont loader, Next.js SSG", folder: "glyphboard" },
+    { num: 113, name: "PulseCast", desc: "Streaming musik dengan visualisasi", tech: "Web Audio analyser, Canvas", folder: "pulsecast" },
+    { num: 114, name: "ArcadiaTrips", desc: "Planner perjalanan dengan peta", tech: "Mapbox custom tiles", folder: "arcadiatrips" },
+    { num: 115, name: "VoxelNest", desc: "Creator model voxel dan share", tech: "Three.js, Zustand store", folder: "voxelnest" },
+    { num: 116, name: "GlowMart", desc: "Mini e-commerce dengan promo live", tech: "WebSocket promo, Stripe", folder: "glowmart" },
+    { num: 117, name: "PaperTrail", desc: "Blog berita dengan layout koran", tech: "Next.js ISR, MDX", folder: "papertrail" },
+    { num: 118, name: "MetaBoard", desc: "Whiteboard 3D dengan avatar", tech: "Three.js + WebRTC", folder: "metaboard" },
+    { num: 119, name: "MoodScape", desc: "Playlist musik sesuai cuaca & mood", tech: "Weather API, Spotify API", folder: "moodscape" },
+    { num: 120, name: "LoopNote", desc: "Catatan infinite scrolling spiral", tech: "Intersection Observer", folder: "loopnote" },
+    { num: 121, name: "AuricShop", desc: "Marketplace barang koleksi premium", tech: "Next.js, Prisma, Stripe, SEO", folder: "auricshop" },
+    { num: 122, name: "FrostMeet", desc: "Platform pertemuan video musim dingin", tech: "WebRTC video call", folder: "frostmeet" },
+    { num: 123, name: "RippleTalk", desc: "Forum komentar animasi gelombang", tech: "Canvas ripple, Supabase", folder: "rippletalk" },
+    { num: 124, name: "InkFlow", desc: "Platform menulis cerita efek tinta", tech: "Rich text editor", folder: "inkflow" },
+    { num: 125, name: "AstroTrade", desc: "Simulasi perdagangan luar angkasa", tech: "WebSocket live price", folder: "astrotrade" },
+    { num: 126, name: "PrismGallery", desc: "Galeri foto dengan efek prisma", tech: "CSS blend modes", folder: "prismgallery" },
+    { num: 127, name: "EchoLearn", desc: "Belajar bahasa dengan rekam suara", tech: "Web Speech API", folder: "echolearn" },
+    { num: 128, name: "ShadowQuest", desc: "Dashboard progress game RPG", tech: "Prisma relational DB, SVG map", folder: "shadowquest" },
+    { num: 129, name: "GlowVote", desc: "Sistem polling dengan visual glow", tech: "Supabase Realtime, Chart.js", folder: "glowvote" },
+    { num: 130, name: "LoomCast", desc: "Streaming video pola background tenun", tech: "HLS streaming, CSS pattern", folder: "loomcast" },
+    { num: 131, name: "PulseBoard", desc: "Monitoring kesehatan komunitas", tech: "IoT API, WebSocket live sensor", folder: "pulseboard" },
+    { num: 132, name: "BreezeMail", desc: "Klien email dengan drag-drop folder", tech: "IMAP/SMTP API", folder: "breezemail" },
+    { num: 133, name: "FableTown", desc: "Platform cerita anak dengan ilustrasi AI", tech: "OpenAI Image API, Markdown", folder: "fabletown" },
+    { num: 134, name: "GlowFit", desc: "Tracker latihan dengan animasi LED", tech: "WebSocket progress, d3.js", folder: "glowfit" },
+    { num: 135, name: "PixelRun", desc: "Leaderboard game sederhana", tech: "Canvas game, WebSocket", folder: "pixelrun" },
+    { num: 136, name: "OceanChain", desc: "Marketplace NFT tema laut", tech: "web3.js, MetaMask login", folder: "oceanchain" },
+    { num: 137, name: "ChromaChat", desc: "Chat room background berubah emosi", tech: "Sentiment analysis, Supabase", folder: "chromachat" },
+    { num: 138, name: "SkyQuest", desc: "Planner perjalanan udara animasi langit", tech: "Time-based gradient, Mapbox", folder: "skyquest" },
+    { num: 139, name: "GlowDocs", desc: "Editor dokumen kolaboratif real-time", tech: "WebRTC, CRDT (Y.js)", folder: "glowdocs" },
+    { num: 140, name: "NimbusStore", desc: "Penyimpanan file pribadi efek awan", tech: "Supabase Storage, NextAuth", folder: "nimbusstore" },
+    { num: 141, name: "AuroraBoard", desc: "Board manajemen proyek efek cahaya", tech: "Framer Motion, Supabase", folder: "auroraboard" },
+    { num: 142, name: "WaveMarket", desc: "Marketplace produk digital animasi", tech: "Canvas liquid, Stripe, Prisma", folder: "wavemarket" },
+    { num: 143, name: "GlowCart", desc: "Toko online dengan keranjang 3D", tech: "Three.js cart animation", folder: "glowcart" },
+    { num: 144, name: "MetaMeet", desc: "Platform meeting avatar holografik", tech: "WebRTC video, Three.js", folder: "metameet" },
+    { num: 145, name: "PixelVerse", desc: "Forum pixel art rating bintang", tech: "Canvas pixel editor", folder: "pixelverse" },
+    { num: 146, name: "LumenBlog", desc: "Blog dengan efek partikel kursor", tech: "Particle.js, Next.js ISR", folder: "lumenblog" },
+    { num: 147, name: "EchoCast", desc: "Streaming podcast visualisasi audio", tech: "Web Audio API, Supabase", folder: "echocast" },
+    { num: 148, name: "FrostByte", desc: "Dashboard crypto dengan efek frost", tech: "CSS glassmorphism, WebSocket", folder: "frostbyte" },
+    { num: 149, name: "ColorLoom", desc: "Generator palet warna interaktif", tech: "Color math algorithm", folder: "colorloom" },
+    { num: 150, name: "ZenWave", desc: "Aplikasi meditasi dengan suara alam", tech: "Audio streaming, Canvas ripple", folder: "zenwave" },
+    { num: 151, name: "SkyBoard", desc: "Manajemen tugas animasi awan", tech: "Parallax scrolling, Zustand", folder: "skyboard" },
+    { num: 152, name: "GlowStock", desc: "Monitor saham ticker horizontal", tech: "WebSocket, Next.js Edge", folder: "glowstock" },
+    { num: 153, name: "DreamQuest", desc: "Platform cerita ilustrasi otomatis", tech: "OpenAI Image API", folder: "dreamquest" },
+    { num: 154, name: "PulseMeet", desc: "Video meeting indikator detak jantung", tech: "WebRTC video, wearable API", folder: "pulsemeet" },
+    { num: 155, name: "LightNest", desc: "Aplikasi penyimpanan foto pribadi", tech: "Supabase Storage, NextAuth", folder: "lightnest" },
+    { num: 156, name: "ArcaneVote", desc: "Sistem polling efek rune glowing", tech: "Supabase Realtime, Framer Motion", folder: "arcanevote" },
+    { num: 157, name: "VibeSync", desc: "Playlist musik spektrum warna", tech: "Spotify API, Web Audio", folder: "vibesync" },
+    { num: 158, name: "GlyphDesk", desc: "Uji dan simpan kombinasi font", tech: "Google Fonts API, Next.js SSG", folder: "glyphdesk" },
+    { num: 159, name: "FlickBox", desc: "Koleksi trailer film efek sinematik", tech: "TMDb API, video overlay", folder: "flickbox" },
+    { num: 160, name: "ChromaBoard", desc: "Whiteboard gradient real-time", tech: "WebRTC, Y.js CRDT", folder: "chromaboard" },
+    { num: 161, name: "NebulaDocs", desc: "Editor dokumen latar nebula", tech: "Three.js particle, Supabase", folder: "nebuladocs" },
+    { num: 162, name: "EchoLearn", desc: "Belajar bahasa feedback suara", tech: "Web Speech API, audio recording", folder: "echolearn2" },
+    { num: 163, name: "StarPath", desc: "Tracker perjalanan wisata bintang", tech: "Mapbox night tiles", folder: "starpath" },
+    { num: 164, name: "GlowBoard", desc: "Board tugas efek neon hover", tech: "React Beautiful DnD, Zustand", folder: "glowboard" },
+    { num: 165, name: "PrismVote", desc: "Polling online visual prisma", tech: "Supabase Realtime, Framer Motion", folder: "prismvote" },
+    { num: 166, name: "FableCast", desc: "Streaming cerita audio anak", tech: "Audio streaming API, Markdown", folder: "fablecast" },
+    { num: 167, name: "CryptoLoom", desc: "Monitor pasar crypto grafik anyaman", tech: "WebSocket, d3.js custom chart", folder: "cryptoloom" },
+    { num: 168, name: "LunarChat", desc: "Chat real-time background fase bulan", tech: "Supabase Realtime", folder: "lunarchat" },
+    { num: 169, name: "AuricDocs", desc: "Editor dokumen kolaboratif tema emas", tech: "WebRTC + Y.js", folder: "auricdocs" },
+    { num: 170, name: "PixelChain", desc: "NFT marketplace pixel style", tech: "web3.js, MetaMask", folder: "pixelchain" },
+    { num: 171, name: "GlowStream", desc: "Streaming musik efek glow spectrum", tech: "Web Audio API", folder: "glowstream" },
+    { num: 172, name: "DreamVault", desc: "Penyimpanan ide terenkripsi", tech: "Crypto API", folder: "dreamvault" },
+    { num: 173, name: "ColorNest", desc: "Generator palet efek retak telur", tech: "Canvas animation", folder: "colornest" },
+    { num: 174, name: "PulseBoard Pro", desc: "Dashboard kesehatan sensor live", tech: "IoT API, WebSocket", folder: "pulseboardpro" },
+    { num: 175, name: "GlowGallery", desc: "Galeri foto efek light-trail", tech: "Supabase Storage", folder: "glowgallery" },
+    { num: 176, name: "MetaTrade", desc: "Simulasi trading grafik holografik", tech: "WebSocket, Chart.js", folder: "metatrade" },
+    { num: 177, name: "BreezeVote", desc: "Voting cepat efek angin animasi", tech: "Supabase Realtime, Framer Motion", folder: "breezevote" },
+    { num: 178, name: "LightForge", desc: "Desain logo efek percikan api", tech: "Canvas API", folder: "lightforge" },
+    { num: 179, name: "OceanBeat", desc: "Pemutar musik visualisasi ombak", tech: "Web Audio analyser", folder: "oceanbeat" },
+    { num: 180, name: "PrismChain", desc: "NFT gallery visual prisma animasi", tech: "web3.js, MetaMask", folder: "prismchain" },
+    { num: 181, name: "NovaNote", desc: "Catatan pribadi enkripsi end-to-end", tech: "Crypto API, Zustand", folder: "novanote" },
+    { num: 182, name: "StreamPulse", desc: "Pemutar musik analisa beat", tech: "Web Audio API, Supabase", folder: "streampulse" },
+    { num: 183, name: "GlyphQuest", desc: "Game kuis huruf & kata skor live", tech: "WebSocket scoreboard", folder: "glyphquest" },
+    { num: 184, name: "CloudForge", desc: "Penyimpanan file folder drag-drop", tech: "Supabase Storage, Three.js", folder: "cloudforge" },
+    { num: 185, name: "EchoBoard", desc: "Forum diskusi notifikasi audio", tech: "Supabase Realtime, Service Worker", folder: "echoboard" },
+    { num: 186, name: "LumenCast", desc: "Platform streaming video mini", tech: "HLS video, Next.js Edge", folder: "lumencast" },
+    { num: 187, name: "PrismFlow", desc: "Generator pola warna animasi", tech: "Canvas kaleidoscope, Framer Motion", folder: "prismflow" },
+    { num: 188, name: "ArcaneDocs", desc: "Editor dokumen efek rune glowing", tech: "WebRTC, Y.js CRDT", folder: "arcanedocs" },
+    { num: 189, name: "PixelHive", desc: "Social network tema pixel art", tech: "Supabase Realtime", folder: "pixelhive" },
+    { num: 190, name: "StarCast", desc: "Streaming podcast tema astronomi", tech: "Audio streaming", folder: "starcast" },
+    { num: 191, name: "ZenTrade", desc: "Simulator trading kalkulasi risiko", tech: "WebSocket, Chart.js", folder: "zentrade" },
+    { num: 192, name: "GlowPress", desc: "CMS blogging tema neon interaktif", tech: "Next.js ISR, MDX", folder: "glowpress" },
+    { num: 193, name: "DreamWeave", desc: "Berbagi mimpi dengan ilustrasi AI", tech: "OpenAI Image API, Prisma", folder: "dreamweave" },
+    { num: 194, name: "FlowMeet", desc: "Platform meeting transkrip otomatis", tech: "WebRTC, Speech-to-Text API", folder: "flowmeet" },
+    { num: 195, name: "PulseChain", desc: "Explorer transaksi blockchain realtime", tech: "web3.js, WebSocket", folder: "pulsechain" },
+    { num: 196, name: "ColorSync", desc: "Sinkronisasi tema warna antar device", tech: "WebSocket multi-client", folder: "colorsync" },
+    { num: 197, name: "AuraShop", desc: "Marketplace produk digital eksklusif", tech: "Stripe Connect, Framer Motion", folder: "aurashop" },
+    { num: 198, name: "SnapQuest", desc: "Aplikasi foto tantangan harian", tech: "Camera API, WebSocket", folder: "snapquest" },
+    { num: 199, name: "GlowTask", desc: "Manajemen tugas efek cahaya", tech: "Zustand, drag-and-drop", folder: "glowtask" },
+    { num: 200, name: "LunarVault", desc: "Penyimpanan catatan mode malam auto", tech: "Crypto API, auto dark theme", folder: "lunarvault" }
+];
 
-    <section class="grid" id="projectGrid">
-      <a class="card" href="001-020/quicknote/dist/"><span class="badge">001</span><h2>1. QuickNote</h2><span class="path">001-020/quicknote/</span></a>
-      <a class="card" href="001-020/picgrid/dist/"><span class="badge">002</span><h2>2. PicGrid</h2><span class="path">001-020/picgrid/</span></a>
-      <a class="card" href="001-020/moodify/dist/"><span class="badge">003</span><h2>3. Moodify</h2><span class="path">001-020/moodify/</span></a>
-      <a class="card" href="001-020/taskzen/dist/"><span class="badge">004</span><h2>4. TaskZen</h2><span class="path">001-020/taskzen/</span></a>
-      <a class="card" href="001-020/quotespark/dist/"><span class="badge">005</span><h2>5. QuoteSpark</h2><span class="path">001-020/quotespark/</span></a>
-      <a class="card" href="001-020/weatherly/dist/"><span class="badge">006</span><h2>6. Weatherly</h2><span class="path">001-020/weatherly/</span></a>
-      <a class="card" href="001-020/timetrackr/dist/"><span class="badge">007</span><h2>7. TimeTrackr</h2><span class="path">001-020/timetrackr/</span></a>
-      <a class="card" href="001-020/flashlearn/dist/"><span class="badge">008</span><h2>8. FlashLearn</h2><span class="path">001-020/flashlearn/</span></a>
-      <a class="card" href="001-020/budgetbuddy/dist/"><span class="badge">009</span><h2>9. BudgetBuddy</h2><span class="path">001-020/budgetbuddy/</span></a>
-      <a class="card" href="001-020/recipenest/dist/"><span class="badge">010</span><h2>10. RecipeNest</h2><span class="path">001-020/recipenest/</span></a>
-      <a class="card" href="001-020/movieradar/dist/"><span class="badge">011</span><h2>11. MovieRadar</h2><span class="path">001-020/movieradar/</span></a>
-      <a class="card" href="001-020/soundwave/dist/"><span class="badge">012</span><h2>12. SoundWave</h2><span class="path">001-020/soundwave/</span></a>
-      <a class="card" href="001-020/bookhaven/dist/"><span class="badge">013</span><h2>13. BookHaven</h2><span class="path">001-020/bookhaven/</span></a>
-      <a class="card" href="001-020/shoplite/dist/"><span class="badge">014</span><h2>14. ShopLite</h2><span class="path">001-020/shoplite/</span></a>
-      <a class="card" href="001-020/blogsphere/dist/"><span class="badge">015</span><h2>15. BlogSphere</h2><span class="path">001-020/blogsphere/</span></a>
-      <a class="card" href="001-020/eventia/dist/"><span class="badge">016</span><h2>16. Eventia</h2><span class="path">001-020/eventia/</span></a>
-      <a class="card" href="001-020/portfolia/dist/"><span class="badge">017</span><h2>17. Portfolia</h2><span class="path">001-020/portfolia/</span></a>
-      <a class="card" href="001-020/chatbreeze/dist/"><span class="badge">018</span><h2>18. ChatBreeze</h2><span class="path">001-020/chatbreeze/</span></a>
-      <a class="card" href="001-020/pollspark/dist/"><span class="badge">019</span><h2>19. PollSpark</h2><span class="path">001-020/pollspark/</span></a>
-      <a class="card" href="001-020/snapboard/dist/"><span class="badge">020</span><h2>20. SnapBoard</h2><span class="path">001-020/snapboard/</span></a>
-      <a class="card" href="021-040/taskhive/dist/"><span class="badge">021</span><h2>21. TaskHive</h2><span class="path">021-040/taskhive/</span></a>
-      <a class="card" href="021-040/feedcast/dist/"><span class="badge">022</span><h2>22. FeedCast</h2><span class="path">021-040/feedcast/</span></a>
-      <a class="card" href="021-040/photoforge/dist/"><span class="badge">023</span><h2>23. PhotoForge</h2><span class="path">021-040/photoforge/</span></a>
-      <a class="card" href="021-040/studysync/dist/"><span class="badge">024</span><h2>24. StudySync</h2><span class="path">021-040/studysync/</span></a>
-      <a class="card" href="021-040/cryptopulse/dist/"><span class="badge">025</span><h2>25. CryptoPulse</h2><span class="path">021-040/cryptopulse/</span></a>
-      <a class="card" href="021-040/trendify/dist/"><span class="badge">026</span><h2>26. Trendify</h2><span class="path">021-040/trendify/</span></a>
-      <a class="card" href="021-040/mealmaster/dist/"><span class="badge">027</span><h2>27. MealMaster</h2><span class="path">021-040/mealmaster/</span></a>
-      <a class="card" href="021-040/streambox/dist/"><span class="badge">028</span><h2>28. StreamBox</h2><span class="path">021-040/streambox/</span></a>
-      <a class="card" href="021-040/goaltrack/dist/"><span class="badge">029</span><h2>29. GoalTrack</h2><span class="path">021-040/goaltrack/</span></a>
-      <a class="card" href="021-040/artfolio/dist/"><span class="badge">030</span><h2>30. Artfolio</h2><span class="path">021-040/artfolio/</span></a>
-      <a class="card" href="021-040/fitbuddy/dist/"><span class="badge">031</span><h2>31. FitBuddy</h2><span class="path">021-040/fitbuddy/</span></a>
-      <a class="card" href="021-040/readnest/dist/"><span class="badge">032</span><h2>32. ReadNest</h2><span class="path">021-040/readnest/</span></a>
-      <a class="card" href="021-040/collabdocs/dist/"><span class="badge">033</span><h2>33. CollabDocs</h2><span class="path">021-040/collabdocs/</span></a>
-      <a class="card" href="021-040/jobscout/dist/"><span class="badge">034</span><h2>34. JobScout</h2><span class="path">021-040/jobscout/</span></a>
-      <a class="card" href="021-040/soundsphere/dist/"><span class="badge">035</span><h2>35. SoundSphere</h2><span class="path">021-040/soundsphere/</span></a>
-      <a class="card" href="021-040/marketsnap/dist/"><span class="badge">036</span><h2>36. MarketSnap</h2><span class="path">021-040/marketsnap/</span></a>
-      <a class="card" href="021-040/votechain/dist/"><span class="badge">037</span><h2>37. VoteChain</h2><span class="path">021-040/votechain/</span></a>
-      <a class="card" href="021-040/langmate/dist/"><span class="badge">038</span><h2>38. LangMate</h2><span class="path">021-040/langmate/</span></a>
-      <a class="card" href="021-040/inspireboard/dist/"><span class="badge">039</span><h2>39. InspireBoard</h2><span class="path">021-040/inspireboard/</span></a>
-      <a class="card" href="021-040/datavision/dist/"><span class="badge">040</span><h2>40. DataVision</h2><span class="path">021-040/datavision/</span></a>
-      <a class="card" href="041-060/planora/dist/"><span class="badge">041</span><h2>41. Planora</h2><span class="path">041-060/planora/</span></a>
-      <a class="card" href="041-060/linklab/dist/"><span class="badge">042</span><h2>42. LinkLab</h2><span class="path">041-060/linklab/</span></a>
-      <a class="card" href="041-060/newsflux/dist/"><span class="badge">043</span><h2>43. NewsFlux</h2><span class="path">041-060/newsflux/</span></a>
-      <a class="card" href="041-060/skillmatch/dist/"><span class="badge">044</span><h2>44. SkillMatch</h2><span class="path">041-060/skillmatch/</span></a>
-      <a class="card" href="041-060/pixshare/dist/"><span class="badge">045</span><h2>45. PixShare</h2><span class="path">041-060/pixshare/</span></a>
-      <a class="card" href="041-060/codecamp/dist/"><span class="badge">046</span><h2>46. CodeCamp</h2><span class="path">041-060/codecamp/</span></a>
-      <a class="card" href="041-060/petpal/dist/"><span class="badge">047</span><h2>47. PetPal</h2><span class="path">041-060/petpal/</span></a>
-      <a class="card" href="041-060/quizrush/dist/"><span class="badge">048</span><h2>48. QuizRush</h2><span class="path">041-060/quizrush/</span></a>
-      <a class="card" href="041-060/eventloop/dist/"><span class="badge">049</span><h2>49. EventLoop</h2><span class="path">041-060/eventloop/</span></a>
-      <a class="card" href="041-060/streamtalk/dist/"><span class="badge">050</span><h2>50. StreamTalk</h2><span class="path">041-060/streamtalk/</span></a>
-      <a class="card" href="041-060/tastetrail/dist/"><span class="badge">051</span><h2>51. TasteTrail</h2><span class="path">041-060/tastetrail/</span></a>
-      <a class="card" href="041-060/budgetwise/dist/"><span class="badge">052</span><h2>52. BudgetWise</h2><span class="path">041-060/budgetwise/</span></a>
-      <a class="card" href="041-060/trackfit/dist/"><span class="badge">053</span><h2>53. TrackFit</h2><span class="path">041-060/trackfit/</span></a>
-      <a class="card" href="041-060/ideaforge/dist/"><span class="badge">054</span><h2>54. IdeaForge</h2><span class="path">041-060/ideaforge/</span></a>
-      <a class="card" href="041-060/notesphere/dist/"><span class="badge">055</span><h2>55. NoteSphere</h2><span class="path">041-060/notesphere/</span></a>
-      <a class="card" href="041-060/hireboard/dist/"><span class="badge">056</span><h2>56. HireBoard</h2><span class="path">041-060/hireboard/</span></a>
-      <a class="card" href="041-060/moodcast/dist/"><span class="badge">057</span><h2>57. MoodCast</h2><span class="path">041-060/moodcast/</span></a>
-      <a class="card" href="041-060/trademate/dist/"><span class="badge">058</span><h2>58. TradeMate</h2><span class="path">041-060/trademate/</span></a>
-      <a class="card" href="041-060/taskfleet/dist/"><span class="badge">059</span><h2>59. TaskFleet</h2><span class="path">041-060/taskfleet/</span></a>
-      <a class="card" href="041-060/ecotrack/dist/"><span class="badge">060</span><h2>60. EcoTrack</h2><span class="path">041-060/ecotrack/</span></a>
-      <a class="card" href="061-080/growlist/dist/"><span class="badge">061</span><h2>61. GrowList</h2><span class="path">061-080/growlist/</span></a>
-      <a class="card" href="061-080/focusmate/dist/"><span class="badge">062</span><h2>62. FocusMate</h2><span class="path">061-080/focusmate/</span></a>
-      <a class="card" href="061-080/planstack/dist/"><span class="badge">063</span><h2>63. PlanStack</h2><span class="path">061-080/planstack/</span></a>
-      <a class="card" href="061-080/cityride/dist/"><span class="badge">064</span><h2>64. CityRide</h2><span class="path">061-080/cityride/</span></a>
-      <a class="card" href="061-080/cookbox/dist/"><span class="badge">065</span><h2>65. CookBox</h2><span class="path">061-080/cookbox/</span></a>
-      <a class="card" href="061-080/watchwave/dist/"><span class="badge">066</span><h2>66. WatchWave</h2><span class="path">061-080/watchwave/</span></a>
-      <a class="card" href="061-080/fittrack/dist/"><span class="badge">067</span><h2>67. FitTrack</h2><span class="path">061-080/fittrack/</span></a>
-      <a class="card" href="061-080/taskbloom/dist/"><span class="badge">068</span><h2>68. TaskBloom</h2><span class="path">061-080/taskbloom/</span></a>
-      <a class="card" href="061-080/mindmappr/dist/"><span class="badge">069</span><h2>69. MindMappr</h2><span class="path">061-080/mindmappr/</span></a>
-      <a class="card" href="061-080/photomint/dist/"><span class="badge">070</span><h2>70. PhotoMint</h2><span class="path">061-080/photomint/</span></a>
-      <a class="card" href="061-080/booknest/dist/"><span class="badge">071</span><h2>71. BookNest</h2><span class="path">061-080/booknest/</span></a>
-      <a class="card" href="061-080/skillforge/dist/"><span class="badge">072</span><h2>72. SkillForge</h2><span class="path">061-080/skillforge/</span></a>
-      <a class="card" href="061-080/clipcast/dist/"><span class="badge">073</span><h2>73. ClipCast</h2><span class="path">061-080/clipcast/</span></a>
-      <a class="card" href="061-080/meetly/dist/"><span class="badge">074</span><h2>74. Meetly</h2><span class="path">061-080/meetly/</span></a>
-      <a class="card" href="061-080/stockscope/dist/"><span class="badge">075</span><h2>75. StockScope</h2><span class="path">061-080/stockscope/</span></a>
-      <a class="card" href="061-080/travelog/dist/"><span class="badge">076</span><h2>76. Travelog</h2><span class="path">061-080/travelog/</span></a>
-      <a class="card" href="061-080/voiceroom/dist/"><span class="badge">077</span><h2>77. VoiceRoom</h2><span class="path">061-080/voiceroom/</span></a>
-      <a class="card" href="061-080/plantopia/dist/"><span class="badge">078</span><h2>78. Plantopia</h2><span class="path">061-080/plantopia/</span></a>
-      <a class="card" href="061-080/tasklink/dist/"><span class="badge">079</span><h2>79. TaskLink</h2><span class="path">061-080/tasklink/</span></a>
-      <a class="card" href="061-080/streamchat/dist/"><span class="badge">080</span><h2>80. StreamChat</h2><span class="path">061-080/streamchat/</span></a>
-      <a class="card" href="081-100/ideavault/dist/"><span class="badge">081</span><h2>81. IdeaVault</h2><span class="path">081-100/ideavault/</span></a>
-      <a class="card" href="081-100/healthsync/dist/"><span class="badge">082</span><h2>82. HealthSync</h2><span class="path">081-100/healthsync/</span></a>
-      <a class="card" href="081-100/quizarena/dist/"><span class="badge">083</span><h2>83. QuizArena</h2><span class="path">081-100/quizarena/</span></a>
-      <a class="card" href="081-100/eventmap/dist/"><span class="badge">084</span><h2>84. EventMap</h2><span class="path">081-100/eventmap/</span></a>
-      <a class="card" href="081-100/rentspace/dist/"><span class="badge">085</span><h2>85. RentSpace</h2><span class="path">081-100/rentspace/</span></a>
-      <a class="card" href="081-100/foodrush/dist/"><span class="badge">086</span><h2>86. FoodRush</h2><span class="path">081-100/foodrush/</span></a>
-      <a class="card" href="081-100/learnhub/dist/"><span class="badge">087</span><h2>87. LearnHub</h2><span class="path">081-100/learnhub/</span></a>
-      <a class="card" href="081-100/gamerank/dist/"><span class="badge">088</span><h2>88. GameRank</h2><span class="path">081-100/gamerank/</span></a>
-      <a class="card" href="081-100/snaptask/dist/"><span class="badge">089</span><h2>89. SnapTask</h2><span class="path">081-100/snaptask/</span></a>
-      <a class="card" href="081-100/devfeed/dist/"><span class="badge">090</span><h2>90. DevFeed</h2><span class="path">081-100/devfeed/</span></a>
-      <a class="card" href="081-100/mindjournal/dist/"><span class="badge">091</span><h2>91. MindJournal</h2><span class="path">081-100/mindjournal/</span></a>
-      <a class="card" href="081-100/trendcast/dist/"><span class="badge">092</span><h2>92. TrendCast</h2><span class="path">081-100/trendcast/</span></a>
-      <a class="card" href="081-100/fitmeal/dist/"><span class="badge">093</span><h2>93. FitMeal</h2><span class="path">081-100/fitmeal/</span></a>
-      <a class="card" href="081-100/photonest/dist/"><span class="badge">094</span><h2>94. PhotoNest</h2><span class="path">081-100/photonest/</span></a>
-      <a class="card" href="081-100/hirefast/dist/"><span class="badge">095</span><h2>95. HireFast</h2><span class="path">081-100/hirefast/</span></a>
-      <a class="card" href="081-100/streamnote/dist/"><span class="badge">096</span><h2>96. StreamNote</h2><span class="path">081-100/streamnote/</span></a>
-      <a class="card" href="081-100/ecobuy/dist/"><span class="badge">097</span><h2>97. EcoBuy</h2><span class="path">081-100/ecobuy/</span></a>
-      <a class="card" href="081-100/taskloop/dist/"><span class="badge">098</span><h2>98. TaskLoop</h2><span class="path">081-100/taskloop/</span></a>
-      <a class="card" href="081-100/quizmate/dist/"><span class="badge">099</span><h2>99. QuizMate</h2><span class="path">081-100/quizmate/</span></a>
-      <a class="card" href="081-100/datasnap/dist/"><span class="badge">100</span><h2>100. DataSnap</h2><span class="path">081-100/datasnap/</span></a>
-      <a class="card" href="101-120/pixelbloom/dist/"><span class="badge">101</span><h2>101. PixelBloom</h2><span class="path">101-120/pixelbloom/</span></a>
-      <a class="card" href="101-120/aurorapay/dist/"><span class="badge">102</span><h2>102. AuroraPay</h2><span class="path">101-120/aurorapay/</span></a>
-      <a class="card" href="101-120/wavespace/dist/"><span class="badge">103</span><h2>103. WaveSpace</h2><span class="path">101-120/wavespace/</span></a>
-      <a class="card" href="101-120/inknote/dist/"><span class="badge">104</span><h2>104. InkNote</h2><span class="path">101-120/inknote/</span></a>
-      <a class="card" href="101-120/neonarcade/dist/"><span class="badge">105</span><h2>105. NeonArcade</h2><span class="path">101-120/neonarcade/</span></a>
-      <a class="card" href="101-120/glowchat/dist/"><span class="badge">106</span><h2>106. GlowChat</h2><span class="path">101-120/glowchat/</span></a>
-      <a class="card" href="101-120/orbitjobs/dist/"><span class="badge">107</span><h2>107. OrbitJobs</h2><span class="path">101-120/orbitjobs/</span></a>
-      <a class="card" href="101-120/bentostore/dist/"><span class="badge">108</span><h2>108. BentoStore</h2><span class="path">101-120/bentostore/</span></a>
-      <a class="card" href="101-120/zengarden/dist/"><span class="badge">109</span><h2>109. ZenGarden</h2><span class="path">101-120/zengarden/</span></a>
-      <a class="card" href="101-120/colorchord/dist/"><span class="badge">110</span><h2>110. ColorChord</h2><span class="path">101-120/colorchord/</span></a>
-      <a class="card" href="101-120/dreamlens/dist/"><span class="badge">111</span><h2>111. DreamLens</h2><span class="path">101-120/dreamlens/</span></a>
-      <a class="card" href="101-120/glyphboard/dist/"><span class="badge">112</span><h2>112. GlyphBoard</h2><span class="path">101-120/glyphboard/</span></a>
-      <a class="card" href="101-120/pulsecast/dist/"><span class="badge">113</span><h2>113. PulseCast</h2><span class="path">101-120/pulsecast/</span></a>
-      <a class="card" href="101-120/arcadiatrips/dist/"><span class="badge">114</span><h2>114. ArcadiaTrips</h2><span class="path">101-120/arcadiatrips/</span></a>
-      <a class="card" href="101-120/voxelnest/dist/"><span class="badge">115</span><h2>115. VoxelNest</h2><span class="path">101-120/voxelnest/</span></a>
-      <a class="card" href="101-120/glowmart/dist/"><span class="badge">116</span><h2>116. GlowMart</h2><span class="path">101-120/glowmart/</span></a>
-      <a class="card" href="101-120/papertrail/dist/"><span class="badge">117</span><h2>117. PaperTrail</h2><span class="path">101-120/papertrail/</span></a>
-      <a class="card" href="101-120/metaboard/dist/"><span class="badge">118</span><h2>118. MetaBoard</h2><span class="path">101-120/metaboard/</span></a>
-      <a class="card" href="101-120/moodscape/dist/"><span class="badge">119</span><h2>119. MoodScape</h2><span class="path">101-120/moodscape/</span></a>
-      <a class="card" href="101-120/loopnote/dist/"><span class="badge">120</span><h2>120. LoopNote</h2><span class="path">101-120/loopnote/</span></a>
-      <a class="card" href="121-140/auricshop/dist/"><span class="badge">121</span><h2>121. AuricShop</h2><span class="path">121-140/auricshop/</span></a>
-      <a class="card" href="121-140/frostmeet/dist/"><span class="badge">122</span><h2>122. FrostMeet</h2><span class="path">121-140/frostmeet/</span></a>
-      <a class="card" href="121-140/rippletalk/dist/"><span class="badge">123</span><h2>123. RippleTalk</h2><span class="path">121-140/rippletalk/</span></a>
-      <a class="card" href="121-140/inkflow/dist/"><span class="badge">124</span><h2>124. InkFlow</h2><span class="path">121-140/inkflow/</span></a>
-      <a class="card" href="121-140/astrotrade/dist/"><span class="badge">125</span><h2>125. AstroTrade</h2><span class="path">121-140/astrotrade/</span></a>
-      <a class="card" href="121-140/prismgallery/dist/"><span class="badge">126</span><h2>126. PrismGallery</h2><span class="path">121-140/prismgallery/</span></a>
-      <a class="card" href="121-140/echolearn/dist/"><span class="badge">127</span><h2>127. EchoLearn</h2><span class="path">121-140/echolearn/</span></a>
-      <a class="card" href="121-140/shadowquest/dist/"><span class="badge">128</span><h2>128. ShadowQuest</h2><span class="path">121-140/shadowquest/</span></a>
-      <a class="card" href="121-140/glowvote/dist/"><span class="badge">129</span><h2>129. GlowVote</h2><span class="path">121-140/glowvote/</span></a>
-      <a class="card" href="121-140/loomcast/dist/"><span class="badge">130</span><h2>130. LoomCast</h2><span class="path">121-140/loomcast/</span></a>
-      <a class="card" href="121-140/pulseboard/dist/"><span class="badge">131</span><h2>131. PulseBoard</h2><span class="path">121-140/pulseboard/</span></a>
-      <a class="card" href="121-140/breezemail/dist/"><span class="badge">132</span><h2>132. BreezeMail</h2><span class="path">121-140/breezemail/</span></a>
-      <a class="card" href="121-140/fabletown/dist/"><span class="badge">133</span><h2>133. FableTown</h2><span class="path">121-140/fabletown/</span></a>
-      <a class="card" href="121-140/glowfit/dist/"><span class="badge">134</span><h2>134. GlowFit</h2><span class="path">121-140/glowfit/</span></a>
-      <a class="card" href="121-140/pixelrun/dist/"><span class="badge">135</span><h2>135. PixelRun</h2><span class="path">121-140/pixelrun/</span></a>
-      <a class="card" href="121-140/oceanchain/dist/"><span class="badge">136</span><h2>136. OceanChain</h2><span class="path">121-140/oceanchain/</span></a>
-      <a class="card" href="121-140/chromachat/dist/"><span class="badge">137</span><h2>137. ChromaChat</h2><span class="path">121-140/chromachat/</span></a>
-      <a class="card" href="121-140/skyquest/dist/"><span class="badge">138</span><h2>138. SkyQuest</h2><span class="path">121-140/skyquest/</span></a>
-      <a class="card" href="121-140/glowdocs/dist/"><span class="badge">139</span><h2>139. GlowDocs</h2><span class="path">121-140/glowdocs/</span></a>
-      <a class="card" href="121-140/nimbusstore/dist/"><span class="badge">140</span><h2>140. NimbusStore</h2><span class="path">121-140/nimbusstore/</span></a>
-      <a class="card" href="141-160/auroraboard/dist/"><span class="badge">141</span><h2>141. AuroraBoard</h2><span class="path">141-160/auroraboard/</span></a>
-      <a class="card" href="141-160/wavemarket/dist/"><span class="badge">142</span><h2>142. WaveMarket</h2><span class="path">141-160/wavemarket/</span></a>
-      <a class="card" href="141-160/glowcart/dist/"><span class="badge">143</span><h2>143. GlowCart</h2><span class="path">141-160/glowcart/</span></a>
-      <a class="card" href="141-160/metameet/dist/"><span class="badge">144</span><h2>144. MetaMeet</h2><span class="path">141-160/metameet/</span></a>
-      <a class="card" href="141-160/pixelverse/dist/"><span class="badge">145</span><h2>145. PixelVerse</h2><span class="path">141-160/pixelverse/</span></a>
-      <a class="card" href="141-160/lumenblog/dist/"><span class="badge">146</span><h2>146. LumenBlog</h2><span class="path">141-160/lumenblog/</span></a>
-      <a class="card" href="141-160/echocast/dist/"><span class="badge">147</span><h2>147. EchoCast</h2><span class="path">141-160/echocast/</span></a>
-      <a class="card" href="141-160/frostbyte/dist/"><span class="badge">148</span><h2>148. FrostByte</h2><span class="path">141-160/frostbyte/</span></a>
-      <a class="card" href="141-160/colorloom/dist/"><span class="badge">149</span><h2>149. ColorLoom</h2><span class="path">141-160/colorloom/</span></a>
-      <a class="card" href="141-160/zenwave/dist/"><span class="badge">150</span><h2>150. ZenWave</h2><span class="path">141-160/zenwave/</span></a>
-      <a class="card" href="141-160/skyboard/dist/"><span class="badge">151</span><h2>151. SkyBoard</h2><span class="path">141-160/skyboard/</span></a>
-      <a class="card" href="141-160/glowstock/dist/"><span class="badge">152</span><h2>152. GlowStock</h2><span class="path">141-160/glowstock/</span></a>
-      <a class="card" href="141-160/dreamquest/dist/"><span class="badge">153</span><h2>153. DreamQuest</h2><span class="path">141-160/dreamquest/</span></a>
-      <a class="card" href="141-160/pulsemeet/dist/"><span class="badge">154</span><h2>154. PulseMeet</h2><span class="path">141-160/pulsemeet/</span></a>
-      <a class="card" href="141-160/lightnest/dist/"><span class="badge">155</span><h2>155. LightNest</h2><span class="path">141-160/lightnest/</span></a>
-      <a class="card" href="141-160/arcanevote/dist/"><span class="badge">156</span><h2>156. ArcaneVote</h2><span class="path">141-160/arcanevote/</span></a>
-      <a class="card" href="141-160/vibesync/dist/"><span class="badge">157</span><h2>157. VibeSync</h2><span class="path">141-160/vibesync/</span></a>
-      <a class="card" href="141-160/glyphdesk/dist/"><span class="badge">158</span><h2>158. GlyphDesk</h2><span class="path">141-160/glyphdesk/</span></a>
-      <a class="card" href="141-160/flickbox/dist/"><span class="badge">159</span><h2>159. FlickBox</h2><span class="path">141-160/flickbox/</span></a>
-      <a class="card" href="141-160/chromaboard/dist/"><span class="badge">160</span><h2>160. ChromaBoard</h2><span class="path">141-160/chromaboard/</span></a>
-      <a class="card" href="161-180/nebuladocs/dist/"><span class="badge">161</span><h2>161. NebulaDocs</h2><span class="path">161-180/nebuladocs/</span></a>
-      <a class="card" href="161-180/echolearn/dist/"><span class="badge">162</span><h2>162. EchoLearn</h2><span class="path">161-180/echolearn/</span></a>
-      <a class="card" href="161-180/starpath/dist/"><span class="badge">163</span><h2>163. StarPath</h2><span class="path">161-180/starpath/</span></a>
-      <a class="card" href="161-180/glowboard/dist/"><span class="badge">164</span><h2>164. GlowBoard</h2><span class="path">161-180/glowboard/</span></a>
-      <a class="card" href="161-180/prismvote/dist/"><span class="badge">165</span><h2>165. PrismVote</h2><span class="path">161-180/prismvote/</span></a>
-      <a class="card" href="161-180/fablecast/dist/"><span class="badge">166</span><h2>166. FableCast</h2><span class="path">161-180/fablecast/</span></a>
-      <a class="card" href="161-180/cryptoloom/dist/"><span class="badge">167</span><h2>167. CryptoLoom</h2><span class="path">161-180/cryptoloom/</span></a>
-      <a class="card" href="161-180/lunarchat/dist/"><span class="badge">168</span><h2>168. LunarChat</h2><span class="path">161-180/lunarchat/</span></a>
-      <a class="card" href="161-180/auricdocs/dist/"><span class="badge">169</span><h2>169. AuricDocs</h2><span class="path">161-180/auricdocs/</span></a>
-      <a class="card" href="161-180/pixelchain/dist/"><span class="badge">170</span><h2>170. PixelChain</h2><span class="path">161-180/pixelchain/</span></a>
-      <a class="card" href="161-180/glowstream/dist/"><span class="badge">171</span><h2>171. GlowStream</h2><span class="path">161-180/glowstream/</span></a>
-      <a class="card" href="161-180/dreamvault/dist/"><span class="badge">172</span><h2>172. DreamVault</h2><span class="path">161-180/dreamvault/</span></a>
-      <a class="card" href="161-180/colornest/dist/"><span class="badge">173</span><h2>173. ColorNest</h2><span class="path">161-180/colornest/</span></a>
-      <a class="card" href="161-180/pulseboard%20pro/dist/"><span class="badge">174</span><h2>174. PulseBoard Pro</h2><span class="path">161-180/pulseboard%20pro/</span></a>
-      <a class="card" href="161-180/glowgallery/dist/"><span class="badge">175</span><h2>175. GlowGallery</h2><span class="path">161-180/glowgallery/</span></a>
-      <a class="card" href="161-180/metatrade/dist/"><span class="badge">176</span><h2>176. MetaTrade</h2><span class="path">161-180/metatrade/</span></a>
-      <a class="card" href="161-180/breezevote/dist/"><span class="badge">177</span><h2>177. BreezeVote</h2><span class="path">161-180/breezevote/</span></a>
-      <a class="card" href="161-180/lightforge/dist/"><span class="badge">178</span><h2>178. LightForge</h2><span class="path">161-180/lightforge/</span></a>
-      <a class="card" href="161-180/oceanbeat/dist/"><span class="badge">179</span><h2>179. OceanBeat</h2><span class="path">161-180/oceanbeat/</span></a>
-      <a class="card" href="161-180/prismchain/dist/"><span class="badge">180</span><h2>180. PrismChain</h2><span class="path">161-180/prismchain/</span></a>
-      <a class="card" href="181-200/novanote/dist/"><span class="badge">181</span><h2>181. NovaNote</h2><span class="path">181-200/novanote/</span></a>
-      <a class="card" href="181-200/streampulse/dist/"><span class="badge">182</span><h2>182. StreamPulse</h2><span class="path">181-200/streampulse/</span></a>
-      <a class="card" href="181-200/glyphquest/dist/"><span class="badge">183</span><h2>183. GlyphQuest</h2><span class="path">181-200/glyphquest/</span></a>
-      <a class="card" href="181-200/cloudforge/dist/"><span class="badge">184</span><h2>184. CloudForge</h2><span class="path">181-200/cloudforge/</span></a>
-      <a class="card" href="181-200/echoboard/dist/"><span class="badge">185</span><h2>185. EchoBoard</h2><span class="path">181-200/echoboard/</span></a>
-      <a class="card" href="181-200/lumencast/dist/"><span class="badge">186</span><h2>186. LumenCast</h2><span class="path">181-200/lumencast/</span></a>
-      <a class="card" href="181-200/prismflow/dist/"><span class="badge">187</span><h2>187. PrismFlow</h2><span class="path">181-200/prismflow/</span></a>
-      <a class="card" href="181-200/arcanedocs/dist/"><span class="badge">188</span><h2>188. ArcaneDocs</h2><span class="path">181-200/arcanedocs/</span></a>
-      <a class="card" href="181-200/pixelhive/dist/"><span class="badge">189</span><h2>189. PixelHive</h2><span class="path">181-200/pixelhive/</span></a>
-      <a class="card" href="181-200/starcast/dist/"><span class="badge">190</span><h2>190. StarCast</h2><span class="path">181-200/starcast/</span></a>
-      <a class="card" href="181-200/zentrade/dist/"><span class="badge">191</span><h2>191. ZenTrade</h2><span class="path">181-200/zentrade/</span></a>
-      <a class="card" href="181-200/glowpress/dist/"><span class="badge">192</span><h2>192. GlowPress</h2><span class="path">181-200/glowpress/</span></a>
-      <a class="card" href="181-200/dreamweave/dist/"><span class="badge">193</span><h2>193. DreamWeave</h2><span class="path">181-200/dreamweave/</span></a>
-      <a class="card" href="181-200/flowmeet/dist/"><span class="badge">194</span><h2>194. FlowMeet</h2><span class="path">181-200/flowmeet/</span></a>
-      <a class="card" href="181-200/pulsechain/dist/"><span class="badge">195</span><h2>195. PulseChain</h2><span class="path">181-200/pulsechain/</span></a>
-      <a class="card" href="181-200/colorsync/dist/"><span class="badge">196</span><h2>196. ColorSync</h2><span class="path">181-200/colorsync/</span></a>
-      <a class="card" href="181-200/aurashop/dist/"><span class="badge">197</span><h2>197. AuraShop</h2><span class="path">181-200/aurashop/</span></a>
-      <a class="card" href="181-200/snapquest/dist/"><span class="badge">198</span><h2>198. SnapQuest</h2><span class="path">181-200/snapquest/</span></a>
-      <a class="card" href="181-200/glowtask/dist/"><span class="badge">199</span><h2>199. GlowTask</h2><span class="path">181-200/glowtask/</span></a>
-      <a class="card" href="181-200/lunarvault/dist/"><span class="badge">200</span><h2>200. LunarVault</h2><span class="path">181-200/lunarvault/</span></a>
-    </section>
-  </main>
+function getFolderRange(num) {
+    if (num <= 20) return '001-020';
+    if (num <= 40) return '021-040';
+    if (num <= 60) return '041-060';
+    if (num <= 80) return '061-080';
+    if (num <= 100) return '081-100';
+    if (num <= 120) return '101-120';
+    if (num <= 140) return '121-140';
+    if (num <= 160) return '141-160';
+    if (num <= 180) return '161-180';
+    return '181-200';
+}
 
-  <footer class="site-footer">
-    <p>Crafted with calm • <span class="zen">禅</span> • breathing space & gentle motion</p>
-  </footer>
+function createProjectCard(project) {
+    const folderRange = getFolderRange(project.num);
+    const url = `/react/${folderRange}/${project.folder}/dist/`;
+    
+    return `
+        <a href="${url}" class="project-card" data-num="${project.num}">
+            <div class="project-number">#${project.num.toString().padStart(3, '0')}</div>
+            <h3 class="project-title">${project.name}</h3>
+            <p class="project-description">${project.desc}</p>
+            <p class="project-tech">${project.tech}</p>
+        </a>
+    `;
+}
 
-  <script src="script.js"></script>
+function renderProjects(range = 'all') {
+    const grid = document.getElementById('projectsGrid');
+    let filteredProjects = projects;
+    
+    if (range !== 'all') {
+        const [start, end] = range.split('-').map(Number);
+        filteredProjects = projects.filter(p => p.num >= start && p.num <= end);
+    }
+    
+    grid.innerHTML = filteredProjects.map(createProjectCard).join('');
+}
+
+function setupFilters() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            const range = btn.dataset.range;
+            renderProjects(range);
+        });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    renderProjects();
+    setupFilters();
+});
+    </script>
 </body>
 </html>
