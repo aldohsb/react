@@ -1,0 +1,64 @@
+/* Import Tailwind CSS base, components, dan utilities */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+  Custom base styles
+  Menggunakan @layer base untuk memastikan styles ini bisa di-override
+*/
+@layer base {
+  /* Reset default browser styles untuk body */
+  body {
+    @apply antialiased; /* Smooth font rendering */
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Custom scrollbar untuk webkit browsers (Chrome, Safari, Edge) */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-teal-400 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-teal-500;
+  }
+}
+
+/* 
+  Custom component classes
+  Menggunakan @layer components untuk reusable component styles
+*/
+@layer components {
+  /* Custom focus ring untuk accessibility */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2;
+  }
+  
+  /* Animation untuk smooth entrance */
+  .fade-in {
+    animation: fadeIn 0.3s ease-in;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
