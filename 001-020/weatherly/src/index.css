@@ -1,0 +1,72 @@
+/**
+ * Global CSS
+ * Import Tailwind base, components, dan utilities
+ * Tambahkan custom animations
+ */
+
+/* Import Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * Custom Animations
+ * Buat animasi untuk enhance user experience
+ */
+
+/* Fade In Animation untuk Weather Card */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply animation dengan class */
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/**
+ * Custom Scrollbar (Optional)
+ * Membuat scrollbar lebih match dengan design
+ */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4A90E2;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #357ABD;
+}
+
+/**
+ * Base Styles
+ * Reset dan styling dasar
+ */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Code font untuk debugging */
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
