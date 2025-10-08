@@ -109,12 +109,16 @@ const App = () => {
       // Log error untuk debugging
       console.error('Failed to load quote:', err);
       
-      // Set error message untuk ditampilkan ke user
-      setError(err.message || 'Failed to load quote');
-      
       // Load fallback quote sebagai backup
       // Ini ensure user tetap melihat quote meski API gagal
       setQuote(getRandomFallbackQuote());
+      
+      // PERBAIKAN: Jangan set error jika fallback berhasil
+      // User tetap bisa lihat quote, jadi tidak perlu tampilkan error
+      // setError(err.message || 'Failed to load quote');
+      
+      // Optional: Log ke console saja untuk debugging
+      console.warn('Using fallback quote due to API error');
       
     } finally {
       /**
@@ -203,8 +207,11 @@ const App = () => {
          * Syntax: condition && <Component />
          * Jika condition true, render Component
          * Jika condition false, render nothing
+         * 
+         * PERBAIKAN: Hanya tampilkan error jika quote TIDAK ada
+         * Jika quote ada (dari fallback), error tidak perlu ditampilkan
          */}
-        {error && (
+        {error && !quote && (
           <ErrorMessage 
             message={error} 
             onRetry={loadNewQuote} 
