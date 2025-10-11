@@ -11,6 +11,7 @@ import react from '@vitejs/plugin-react';
 // Export konfigurasi Vite
 export default defineConfig({
   // Plugin untuk support React
+  base: '/react/001-020/quotespark/dist/',
   plugins: [react()],
   
   // Server configuration untuk development

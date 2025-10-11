@@ -9,6 +9,7 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   // Plugin untuk React dengan Fast Refresh
+  base: '/react/001-020/weatherly/dist/',
   plugins: [react()],
   
   // Server configuration untuk development
