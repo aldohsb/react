@@ -1,0 +1,1019 @@
+﻿Buatkan panduan  dan file lengkap proyek React di bawah ini, 
+Judul : 
+
+sertakan pembahasan pelajaran teknik react yang dibahas di atas, pembahasan level beginner, pakai bahasa awam.
+proyek jangan terlalu rumit, yang simple saja, fokuskan pelajaran teknik yang disebutkan diatas
+lengkapi code dengan banyak komentar untuk menjelaskan setiap baris code untuk belajar.
+
+UI/UX standart profesional, designer grade.
+Terapkan modular programming, dan setiap file di tulis di masing-masing artifact agar mudah di copy.
+jangan gunakan syntax code yang sudah deprecated.
+sertakan code bash touch mkdir untuk membuat struktur file lengkap semua file termasuk di root.
+tidak usah pakai demo tampilan, tidak usah pakai README.MD,
+
+kalau terlalu panjang bagi proyek menjadi beberapa part tapi setiap part bisa langsung di lihat hasilnya, agar segera bisa di fix  kalau ada error, kemudian lanjut dengan  part selanjutnya di chat berikutnya.
+
+
+1. QuickNote
+
+UI minimal putih–teal. Aplikasi catatan CRUD sederhana.
+Teknik: React hooks dan localStorage untuk menyimpan data.
+
+2. PicGrid
+
+Tema grid foto pastel. Gallery foto dengan modal zoom.
+Teknik: useState/useEffect dan CSS Grid.
+
+3. Moodify
+
+Dark neon yang berubah warna sesuai mood.
+Teknik: Context API dan CSS variables untuk ganti tema.
+
+4. TaskZen
+
+Flat mint yang rapi. To-do list dengan filter dan mark complete.
+Teknik: React hooks dan state management ringan (Zustand).
+
+5. QuoteSpark
+
+Gradient sunrise. Menampilkan random quote setiap klik.
+Teknik: Fetch API, async/await, error handling dasar.
+
+6. Weatherly
+
+Blue cloudy. Cek cuaca kota dengan input nama kota.
+Teknik: OpenWeather API, fetch data eksternal.
+
+7. TimeTrackr
+
+Dark dashboard. Timer, stopwatch, dan lap time.
+Teknik: Custom hooks, useReducer untuk manajemen waktu.
+
+8. FlashLearn
+
+Soft purple. Flashcard untuk belajar kata/definisi.
+Teknik: Animasi flip dengan Framer Motion.
+
+9. BudgetBuddy
+
+Green finance. Pencatat pengeluaran dan visualisasi grafik.
+Teknik: Context API dan Chart.js untuk pie/bar chart.
+
+10. RecipeNest
+
+Warm kitchen. Pencarian resep masakan + pagination.
+Teknik: Fetch API dan pencarian berbasis keyword.
+
+11. MovieRadar
+
+Dark cinema. Pencarian film, rating, dan detail poster.
+Teknik: TMDb API dan React Router untuk halaman detail.
+
+12. SoundWave
+
+Music purple. Pemutar audio playlist sederhana.
+Teknik: HTML5 Audio API dan custom hooks.
+
+13. BookHaven
+
+Cozy library. Koleksi buku favorit dengan filter genre.
+Teknik: React Router dan fitur pencarian.
+
+14. ShopLite
+
+Clean e-commerce. Mini toko online dengan keranjang belanja.
+Teknik: Context API, localStorage cart, kalkulasi subtotal.
+
+15. BlogSphere
+
+Light magazine. Blog personal dengan markdown.
+Teknik: Next.js Static Site Generation (SSG) dan MDX.
+
+16. Eventia
+
+Vibrant festival. Jadwal event dan RSVP online.
+Teknik: Next.js dynamic routing dan form handling.
+
+17. Portfolia
+
+Elegant dark. Portfolio pribadi yang bisa diupdate mudah.
+Teknik: Next.js Incremental Static Regeneration (ISR) dan Tailwind CSS.
+
+18. ChatBreeze
+
+Minimal chat. Aplikasi chat real-time sederhana.
+Teknik: Firebase Realtime Database dan autentikasi dasar.
+
+19. PollSpark
+
+Bright voting. Polling online dengan hasil live.
+Teknik: Supabase Realtime subscription untuk update cepat.
+
+20. SnapBoard
+
+Pastel ala Trello. Task board dengan drag-and-drop.
+Teknik: React Beautiful DnD untuk interaksi drag-drop.
+
+21. TaskHive
+
+Tema kuning–hitam ala produktivitas. Aplikasi manajemen proyek multi-user dengan board dan deadline.
+Teknik: Next.js API Routes, MongoDB, autentikasi JWT.
+
+22. FeedCast
+
+Tema dark podcast. Platform agregator podcast dengan pemutar audio dan favorit.
+Teknik: Next.js Server Components, RSS feed parsing.
+
+23. PhotoForge
+
+Tema neon kreatif. Editor foto sederhana dengan filter dan cropping.
+Teknik: React Canvas API, Web Workers untuk proses gambar.
+
+24. StudySync
+
+Tema biru edukasi. Dashboard belajar online dengan progress dan kuis.
+Teknik: Next.js App Router, Prisma + PostgreSQL, Protected routes.
+
+25. CryptoPulse
+
+Tema dark fintech. Pantau harga crypto real-time dan chart historis.
+Teknik: WebSocket live data, Chart.js, Next.js SSR.
+
+26. Trendify
+
+Tema social purple. Aplikasi microblogging seperti Twitter mini.
+Teknik: Supabase Realtime, infinite scroll, optimistic UI.
+
+27. MealMaster
+
+Tema clean kuliner. Generator meal plan mingguan dengan API resep.
+Teknik: Next.js ISR, caching API, drag-drop meal planner.
+
+28. StreamBox
+
+Tema movie dark. Platform streaming film gratis dengan trailer.
+Teknik: HLS video streaming, Next.js Middleware untuk proteksi.
+
+29. GoalTrack
+
+Tema hijau motivasi. Aplikasi goal-setting dengan grafik kemajuan.
+Teknik: Zustand + Persist, Chart.js, Next.js SSG.
+
+30. Artfolio
+
+Tema minimal gallery. Marketplace karya seni dengan upload dan checkout.
+Teknik: Next.js API routes, Stripe payment, image upload (Cloudinary).
+
+31. FitBuddy
+
+Tema sporty orange. Tracker aktivitas olahraga dengan grafik kalori.
+Teknik: React Native Web sharing concept, Next.js API, d3.js charts.
+
+32. ReadNest
+
+Tema cozy reader. Aplikasi baca artikel dengan highlight & bookmark.
+Teknik: Next.js Server Actions, user session, rich-text parser.
+
+33. CollabDocs
+
+Tema clean collaboration. Editor dokumen real-time multiuser.
+Teknik: WebRTC + CRDT (Y.js), Next.js API for signaling.
+
+34. JobScout
+
+Tema profesional biru. Portal lowongan kerja dengan filter dan apply.
+Teknik: Next.js Dynamic Routing, ElasticSearch, SSR SEO.
+
+35. SoundSphere
+
+Tema musik futuristik. Streaming musik + playlist personal.
+Teknik: Next.js Edge Functions, HLS, Auth0 authentication.
+
+36. MarketSnap
+
+Tema e-commerce modern. Marketplace produk digital (font, desain).
+Teknik: Next.js App Router, Stripe Connect, image optimization.
+
+37. VoteChain
+
+Tema blockchain dark. Voting online berbasis blockchain.
+Teknik: Next.js + web3.js, MetaMask integration, smart contract sederhana.
+
+38. LangMate
+
+Tema belajar bahasa pastel. Platform pertukaran bahasa dengan chat video.
+Teknik: WebRTC video call, Next.js API, live translation (Google Translate API).
+
+39. InspireBoard
+
+Tema kreatif kanvas. Whiteboard kolaboratif dengan drawing real-time.
+Teknik: Canvas API, WebSocket server, Next.js Edge deployment.
+
+40. DataVision
+
+Tema dashboard biru tua. Platform analitik data dengan visualisasi interaktif.
+Teknik: Next.js Server Components, d3.js, lazy loading, CSV upload.
+
+41. Planora
+
+Tema biru produktivitas. Aplikasi kalender bersama untuk tim kecil.
+Teknik: Next.js API Routes, Prisma + PostgreSQL, drag-and-drop event.
+
+42. LinkLab
+
+Tema clean minimal. Shortlink manager dengan statistik klik.
+Teknik: Next.js ISR, Chart.js analytics, QR code generator.
+
+43. NewsFlux
+
+Tema dark news. Portal berita realtime dengan kategori dan notifikasi.
+Teknik: Server-Sent Events, Redis cache, Next.js middleware.
+
+44. SkillMatch
+
+Tema profesional biru. Platform mentoring: daftar mentor, jadwal sesi.
+Teknik: Next.js App Router, Stripe payment scheduling, Auth0 login.
+
+45. PixShare
+
+Tema gallery vibrant. Social photo sharing dengan like & comment.
+Teknik: Supabase Storage, Realtime database, infinite scroll.
+
+46. CodeCamp
+
+Tema dark dev. Platform kursus coding dengan video dan kuis.
+Teknik: Next.js dynamic routes, Markdown/MDX, JWT protected API.
+
+47. PetPal
+
+Tema hijau hangat. Aplikasi adopsi hewan dengan peta lokasi.
+Teknik: Next.js Mapbox integration, geolocation API.
+
+48. QuizRush
+
+Tema neon game. Platform kuis multiplayer realtime.
+Teknik: WebSocket (Socket.io), optimistic UI, Next.js Edge deployment.
+
+49. EventLoop
+
+Tema festival colourful. Ticketing event dengan QR check-in.
+Teknik: Next.js Server Actions, Stripe payment, QR code scan.
+
+50. StreamTalk
+
+Tema dark streaming. Live video + chat interaktif.
+Teknik: WebRTC video, WebSocket chat, Next.js API signaling.
+
+51. TasteTrail
+
+Tema foodie pastel. Aplikasi review restoran dengan rating dan foto.
+Teknik: Next.js API, Prisma relational DB, image upload (Cloudinary).
+
+52. BudgetWise
+
+Tema finance clean. Manajemen anggaran bulanan multi-user.
+Teknik: Zustand global state, Next.js SSR untuk SEO laporan publik.
+
+53. TrackFit
+
+Tema sporty blue. Tracker aktivitas harian + integrasi wearable.
+Teknik: Next.js API, OAuth2 (Google Fit/Apple Health), Chart.js.
+
+54. IdeaForge
+
+Tema kreatif purple. Tempat berbagi ide/startup dan voting komunitas.
+Teknik: Supabase Realtime, role-based auth, serverless functions.
+
+55. NoteSphere
+
+Tema notebook vintage. Catatan markdown dengan folder & tag.
+Teknik: Next.js App Router, MDX editor, offline mode (Service Worker).
+
+56. HireBoard
+
+Tema professional clean. Job board dengan fitur posting & apply CV.
+Teknik: Next.js SSG + ISR, file upload, full-text search (Elastic).
+
+57. MoodCast
+
+Tema weather-music. Rekomendasi playlist Spotify berdasarkan cuaca lokasi.
+Teknik: Spotify API + Weather API, Next.js middleware.
+
+58. TradeMate
+
+Tema fintech blue. Simulasi trading saham real-time.
+Teknik: WebSocket live quotes, Next.js SSR, Redux Toolkit.
+
+59. TaskFleet
+
+Tema kanban modern. Manajemen proyek perusahaan dengan tim & komentar.
+Teknik: Next.js App Router, Prisma, Drag-and-Drop board, optimistic update.
+
+60. EcoTrack
+
+Tema hijau alam. Aplikasi pelacak jejak karbon dan tips ramah lingkungan.
+Teknik: Next.js API, user dashboard dengan d3.js visualisasi.
+
+61. GrowList
+
+Tema hijau tanaman. Aplikasi daftar belanja yang bisa di-share ke teman.
+Teknik: Next.js App Router, Supabase Realtime, role-based sharing.
+
+62. FocusMate
+
+Tema dark minimal. Pomodoro timer + catatan progres.
+Teknik: Zustand persistent state, custom hooks untuk timer, PWA offline.
+
+63. PlanStack
+
+Tema biru profesional. Roadmap manajemen produk dengan milestone.
+Teknik: Next.js API, Prisma PostgreSQL, drag-and-drop reordering.
+
+64. CityRide
+
+Tema transportasi urban. Booking kendaraan seperti bike/scooter sharing.
+Teknik: Mapbox maps, geolocation API, Next.js middleware untuk harga dinamis.
+
+65. CookBox
+
+Tema warm kitchen. Buat & bagikan kotak resep pribadi.
+Teknik: Next.js ISR, image upload Cloudinary, search full-text.
+
+66. WatchWave
+
+Tema cinema purple. Platform review film dan rekomendasi personal.
+Teknik: Next.js Server Components, TMDb API, Redis caching.
+
+67. FitTrack
+
+Tema sporty neon. Pelacak latihan gym dengan grafik kemajuan.
+Teknik: Next.js API Routes, Chart.js, user auth JWT.
+
+68. TaskBloom
+
+Tema pastel productivity. To-do list multi-proyek dengan reminder email.
+Teknik: Next.js Server Actions, Nodemailer email service.
+
+69. MindMappr
+
+Tema kreatif whiteboard. Buat mind map interaktif.
+Teknik: Canvas API, Zustand store, export SVG.
+
+70. PhotoMint
+
+Tema vibrant gallery. Jual foto stock dengan sistem pembayaran.
+Teknik: Next.js API, Stripe Checkout, image optimization.
+
+71. BookNest
+
+Tema cozy library. Pinjam buku online untuk komunitas lokal.
+Teknik: Prisma relational DB, NextAuth authentication, file upload.
+
+72. SkillForge
+
+Tema dark education. Platform kursus dengan video dan sertifikat.
+Teknik: Next.js dynamic routes, video streaming HLS, Supabase Storage.
+
+73. ClipCast
+
+Tema podcast modern. Upload & dengarkan podcast komunitas.
+Teknik: Next.js API, audio streaming, Realtime comments.
+
+74. Meetly
+
+Tema meeting blue. Booking ruang meeting dan integrasi kalender.
+Teknik: Google Calendar API, Next.js Edge Functions, Auth0.
+
+75. StockScope
+
+Tema fintech clean. Analisis saham dan watchlist pribadi.
+Teknik: WebSocket real-time quotes, Chart.js, Next.js SSR.
+
+76. Travelog
+
+Tema travel pastel. Catatan perjalanan dengan foto & peta rute.
+Teknik: Mapbox, image upload, Next.js SSG.
+
+77. VoiceRoom
+
+Tema podcast dark. Audio chat room real-time.
+Teknik: WebRTC audio, WebSocket chat, Next.js API signaling.
+
+78. Plantopia
+
+Tema nature green. Marketplace tanaman hias dengan fitur lelang.
+Teknik: Next.js App Router, Prisma, Stripe payment, countdown timer.
+
+79. TaskLink
+
+Tema business blue. Integrasi to-do list dengan Google Tasks API.
+Teknik: OAuth2, Next.js API Routes, incremental static regeneration.
+
+80. StreamChat
+
+Tema chat dark. Live chat dengan moderator dan badge member.
+Teknik: Supabase Realtime, optimistic updates, role-based auth.
+
+81. IdeaVault
+
+Tema kreatif modern. Simpan ide rahasia dengan enkripsi end-to-end.
+Teknik: Next.js API, crypto Web APIs, secure cookies.
+
+82. HealthSync
+
+Tema medical clean. Catatan kesehatan keluarga multi-user.
+Teknik: Next.js Server Actions, Prisma, role/permission management.
+
+83. QuizArena
+
+Tema game neon. Kuis kompetisi real-time dengan scoreboard.
+Teknik: WebSocket live updates, Zustand global state, serverless functions.
+
+84. EventMap
+
+Tema festival vibrant. Peta interaktif event musik.
+Teknik: Mapbox layers, clustering, Next.js Edge deployment.
+
+85. RentSpace
+
+Tema property minimal. Sewa ruangan/office dengan sistem booking.
+Teknik: Prisma DB, NextAuth, Stripe subscription.
+
+86. FoodRush
+
+Tema red-orange delivery. Pemesanan makanan real-time.
+Teknik: Next.js API Routes, WebSocket order tracking, Supabase Storage.
+
+87. LearnHub
+
+Tema education blue. Forum diskusi materi belajar dengan vote.
+Teknik: Next.js App Router, Prisma, Markdown editor.
+
+88. GameRank
+
+Tema e-sport dark. Ranking turnamen e-sport dengan live update.
+Teknik: WebSocket, Next.js middleware caching, d3.js charts.
+
+89. SnapTask
+
+Tema productivity purple. Catat tugas dengan screenshot pendukung.
+Teknik: Next.js API, image upload Cloudinary, drag-drop attachments.
+
+90. DevFeed
+
+Tema developer dark. Aggregator berita developer + filter teknologi.
+Teknik: Next.js SSG + ISR, RSS feed parsing, Algolia search.
+
+91. MindJournal
+
+Tema calm pastel. Jurnal harian dengan analisis mood otomatis.
+Teknik: Sentiment analysis API, Next.js Server Actions, Chart.js.
+
+92. TrendCast
+
+Tema social blue. Dashboard tren sosial media.
+Teknik: Twitter API v2, Next.js ISR, Redis caching.
+
+93. FitMeal
+
+Tema health clean. Rencana makan + perhitungan kalori.
+Teknik: Next.js API, Prisma DB, Zustand store.
+
+94. PhotoNest
+
+Tema gallery elegant. Album foto privat dengan share link aman.
+Teknik: Supabase Storage, signed URL, NextAuth.
+
+95. HireFast
+
+Tema professional grey. Platform rekrut cepat dengan shortlist otomatis.
+Teknik: Next.js Server Actions, OpenAI API untuk ringkasan CV.
+
+96. StreamNote
+
+Tema music purple. Catatan musik yang sinkron dengan lagu Spotify.
+Teknik: Spotify API, Next.js middleware, Realtime lyrics.
+
+97. EcoBuy
+
+Tema eco green. Marketplace produk ramah lingkungan.
+Teknik: Next.js App Router, Stripe Checkout, Prisma relational.
+
+98. TaskLoop
+
+Tema dark productivity. Sistem tugas berulang otomatis.
+Teknik: Next.js Cron job (serverless schedule), Zustand state.
+
+99. QuizMate
+
+Tema quiz bright. Generator kuis custom untuk guru/mentor.
+Teknik: Next.js API, dynamic routing, export PDF.
+
+100. DataSnap
+
+Tema dashboard blue. Upload CSV lalu visualisasi data interaktif.
+Teknik: Next.js Server Components, d3.js, file parsing (Papaparse).
+
+101. PixelBloom
+
+UI bergaya pixel-art retro. Galeri seni piksel dengan editor sederhana.
+Teknik: Canvas API, drag-drop palette, Next.js API.
+
+102. AuroraPay
+
+UI gradient aurora yang dinamis. Dompet digital dengan transaksi antar pengguna.
+Teknik: Prisma + PostgreSQL, Stripe Connect, animasi gradient CSS.
+
+103. WaveSpace
+
+UI parallax laut. Forum diskusi bertema laut dengan efek gelombang interaktif.
+Teknik: Framer Motion parallax, Next.js App Router, Supabase Realtime.
+
+104. InkNote
+
+UI handwriting / paper texture. Catatan markdown dengan brush font.
+Teknik: MDX editor, offline PWA, Next.js ISR.
+
+105. NeonArcade
+
+UI neon cyberpunk. Portal game HTML5 mini dengan leaderboard.
+Teknik: Game iframe integration, WebSocket leaderboard, Next.js middleware.
+
+106. GlowChat
+
+UI glassmorphism neon. Chat real-time dengan efek glass blur.
+Teknik: Supabase Realtime, CSS glass effect, optimistic updates.
+
+107. OrbitJobs
+
+UI space dark + planet orbit. Job board dengan visual orbit perusahaan.
+Teknik: d3.js orbit visualization, Next.js dynamic routing.
+
+108. BentoStore
+
+UI bento grid ala Apple. Marketplace template digital.
+Teknik: Next.js App Router, Stripe payment, Grid masonry layout.
+
+109. ZenGarden
+
+UI Japanese wabi-sabi minimal. Tracker kebiasaan mindfulness.
+Teknik: Prisma DB, Next.js Server Actions, animated SVG sand patterns.
+
+110. ColorChord
+
+UI musical color gradient. Generator palet warna berbasis musik.
+Teknik: Web Audio API, color math, Next.js API.
+
+111. DreamLens
+
+UI soft pastel dreamy. Platform berbagi mimpi & interpretasi.
+Teknik: Next.js API, OpenAI API untuk analisis teks.
+
+112. GlyphBoard
+
+UI typography art deco. Galeri font dan tester teks.
+Teknik: WebFont loader, Next.js SSG, search indexing.
+
+113. PulseCast
+
+UI heartbeat animation. Streaming musik dengan visualisasi detak.
+Teknik: Web Audio analyser, Canvas API, Next.js Edge.
+
+114. ArcadiaTrips
+
+UI travel watercolor. Planner perjalanan dengan peta aquarelle.
+Teknik: Mapbox custom tiles, Next.js API, image overlay.
+
+115. VoxelNest
+
+UI 3D voxel block. Creator model voxel dan share komunitas.
+Teknik: Three.js, Zustand store, Next.js dynamic routes.
+
+116. GlowMart
+
+UI neon supermarket. Mini e-commerce dengan promo real-time.
+Teknik: WebSocket promo update, Stripe checkout, Next.js App Router.
+
+117. PaperTrail
+
+UI newspaper vintage. Blog berita personal dengan layout koran.
+Teknik: Next.js ISR, MDX, CSS multi-column layout.
+
+118. MetaBoard
+
+UI metaverse futuristic. Whiteboard 3D dengan avatar user.
+Teknik: Three.js + WebRTC, Supabase Realtime.
+
+119. MoodScape
+
+UI dynamic gradient yang berubah sesuai cuaca. Playlist musik sesuai cuaca & mood.
+Teknik: Weather API, Spotify API, Next.js middleware.
+
+120. LoopNote
+
+UI infinite scrolling spiral. Catatan yang bisa di-scroll tanpa akhir.
+Teknik: Intersection Observer, Next.js dynamic data.
+
+121. AuricShop
+
+UI golden luxury. Marketplace barang koleksi premium.
+Teknik: Next.js App Router, Prisma DB, Stripe payment, SEO optimisasi.
+
+122. FrostMeet
+
+UI frosted glass winter. Platform pertemuan video bertema musim dingin.
+Teknik: WebRTC video call, Next.js API signaling, Tailwind glass effect.
+
+123. RippleTalk
+
+UI ripple water animation. Forum komentar dengan animasi gelombang.
+Teknik: Canvas ripple effect, Supabase Realtime.
+
+124. InkFlow
+
+UI ink blot / tinta tumpah. Platform menulis cerita dengan efek tinta.
+Teknik: Rich text editor, Next.js Server Components.
+
+125. AstroTrade
+
+UI space holographic. Simulasi perdagangan luar angkasa (crypto/gold).
+Teknik: WebSocket live price, Prisma DB, Next.js Edge Functions.
+
+126. PrismGallery
+
+UI kaleidoscope color. Galeri foto dengan efek prisma.
+Teknik: CSS blend modes, Next.js API image transformation.
+
+127. EchoLearn
+
+UI voice waveform. Aplikasi belajar bahasa dengan rekam suara.
+Teknik: Web Speech API, audio recording, Next.js API.
+
+128. ShadowQuest
+
+UI dark RPG fantasy. Dashboard progress game RPG buatan user.
+Teknik: Next.js API, Prisma relational DB, animated SVG map.
+
+129. GlowVote
+
+UI neon voting booth. Sistem polling dengan visual hasil glow.
+Teknik: Supabase Realtime, optimistic UI, Chart.js.
+
+130. LoomCast
+
+UI loom pattern weaving. Streaming video dengan pola background tenun.
+Teknik: HLS streaming, CSS pattern generator, Next.js Edge.
+
+131. PulseBoard
+
+UI digital heartbeat dashboard. Monitoring kesehatan komunitas.
+Teknik: IoT API mock, WebSocket live sensor, Next.js middleware.
+
+132. BreezeMail
+
+UI clean pastel email client. Klien email dengan drag-drop folder.
+Teknik: IMAP/SMTP API, Next.js API Routes, optimistic updates.
+
+133. FableTown
+
+UI storybook illustration. Platform menulis cerita anak dengan ilustrasi AI.
+Teknik: OpenAI Image API, Next.js Server Actions, Markdown editor.
+
+134. GlowFit
+
+UI fitness neon. Tracker latihan dengan animasi LED.
+Teknik: Next.js API, WebSocket progress update, d3.js.
+
+135. PixelRun
+
+UI retro game 8-bit. Leaderboard game sederhana buatan user.
+Teknik: Canvas game engine, WebSocket leaderboard.
+
+136. OceanChain
+
+UI deep sea gradient. Marketplace NFT tema laut.
+Teknik: Next.js App Router, web3.js, MetaMask login.
+
+137. ChromaChat
+
+UI dynamic color shift. Chat room dengan background berubah sesuai emosi.
+Teknik: Sentiment analysis API, Supabase Realtime.
+
+138. SkyQuest
+
+UI day/night cycle. Planner perjalanan udara dengan animasi langit real-time.
+Teknik: Time-based gradient, Mapbox routes, Next.js API.
+
+139. GlowDocs
+
+UI glassmorphism neon purple. Editor dokumen kolaboratif real-time.
+Teknik: WebRTC data channel, CRDT (Y.js), Next.js Edge Functions.
+
+140. NimbusStore
+
+UI cloud vapor effect. Penyimpanan file pribadi dengan efek awan.
+Teknik: Supabase Storage, NextAuth auth, animated cloud SVG.
+
+141. AuroraBoard
+
+UI aurora moving lights. Board manajemen proyek dengan efek cahaya bergerak.
+Teknik: Framer Motion gradient animation, Next.js App Router, Supabase Realtime.
+
+142. WaveMarket
+
+UI liquid wave animation. Marketplace produk digital dengan latar animasi gelombang.
+Teknik: Canvas liquid effect, Stripe payment, Prisma DB.
+
+143. GlowCart
+
+UI glass neon commerce. Toko online dengan keranjang 3D.
+Teknik: Three.js cart animation, Next.js API Routes.
+
+144. MetaMeet
+
+UI sci-fi hologram. Platform meeting dengan avatar holografik.
+Teknik: WebRTC video, Next.js Edge, Three.js avatar rendering.
+
+145. PixelVerse
+
+UI pixel galaxy. Forum pixel art dengan rating bintang galaksi.
+Teknik: Canvas pixel editor, Supabase Storage, Next.js SSG.
+
+146. LumenBlog
+
+UI light particle effect. Blog dengan efek partikel mengikuti kursor.
+Teknik: Particle.js, Next.js ISR, MDX content.
+
+147. EchoCast
+
+UI sound ripple. Streaming podcast dengan visualisasi audio real-time.
+Teknik: Web Audio API, Supabase Realtime, Next.js middleware.
+
+148. FrostByte
+
+UI frozen glass. Dashboard crypto dengan efek frost.
+Teknik: CSS glassmorphism, WebSocket live price, Prisma DB.
+
+149. ColorLoom
+
+UI woven gradient. Generator palet warna interaktif.
+Teknik: Color math algorithm, Next.js Server Actions.
+
+150. ZenWave
+
+UI animated water ripple. Aplikasi meditasi dengan suara alam.
+Teknik: Audio streaming, Canvas ripple animation.
+
+151. SkyBoard
+
+UI moving cloud background. Manajemen tugas dengan animasi awan.
+Teknik: Parallax scrolling, Zustand global state.
+
+152. GlowStock
+
+UI neon ticker tape. Monitor saham real-time dengan ticker horizontal.
+Teknik: WebSocket, Next.js Edge, Chart.js.
+
+153. DreamQuest
+
+UI fantasy storybook. Platform menulis cerita dengan ilustrasi otomatis.
+Teknik: OpenAI Image API, Next.js Server Components.
+
+154. PulseMeet
+
+UI heartbeat monitor. Video meeting dengan indikator detak jantung.
+Teknik: WebRTC video, wearable API mock, Next.js middleware.
+
+155. LightNest
+
+UI soft glowing pastel. Aplikasi penyimpanan foto pribadi.
+Teknik: Supabase Storage, signed URL, NextAuth auth.
+
+156. ArcaneVote
+
+UI magic rune. Sistem polling dengan efek rune glowing saat voting.
+Teknik: Supabase Realtime, Next.js API, Framer Motion.
+
+157. VibeSync
+
+UI color sound spectrum. Playlist musik sinkron dengan spektrum warna.
+Teknik: Spotify API, Web Audio analyser, Next.js Edge.
+
+158. GlyphDesk
+
+UI typography playground. Uji dan simpan kombinasi font favorit.
+Teknik: Google Fonts API, Next.js SSG.
+
+159. FlickBox
+
+UI cinematic light leak. Koleksi trailer film dengan efek sinematik.
+Teknik: TMDb API, Next.js Server Actions, video overlay.
+
+160. ChromaBoard
+
+UI dynamic multi-color gradient. Whiteboard kolaborasi dengan gradient real-time.
+Teknik: WebRTC data channel, Y.js CRDT, Next.js Edge.
+
+161. NebulaDocs
+
+UI nebula space art. Editor dokumen dengan latar nebula animasi.
+Teknik: Three.js particle background, Supabase Realtime.
+
+162. EchoLearn
+
+UI echo ripple. Platform belajar bahasa dengan feedback suara.
+Teknik: Web Speech API, audio recording, Next.js API Routes.
+
+163. StarPath
+
+UI night sky star map. Tracker perjalanan wisata bintang.
+Teknik: Mapbox night tiles, Next.js Server Components.
+
+164. GlowBoard
+
+UI glass neon kanban. Board tugas dengan efek neon menyala saat hover.
+Teknik: React Beautiful DnD, Zustand, Next.js App Router.
+
+165. PrismVote
+
+UI kaleidoscope voting. Polling online dengan visual prisma.
+Teknik: Supabase Realtime, Framer Motion kaleidoscope effect.
+
+166. FableCast
+
+UI storybook pastel. Streaming cerita audio untuk anak.
+Teknik: Audio streaming API, Next.js API, Markdown stories.
+
+167. CryptoLoom
+
+UI woven crypto graph. Monitor pasar crypto dengan grafik anyaman.
+Teknik: WebSocket live data, d3.js custom weave chart.
+
+168. LunarChat
+
+UI moon phase. Chat real-time dengan background fase bulan.
+Teknik: Supabase Realtime, dynamic background update.
+
+169. AuricDocs
+
+UI gold shimmer. Editor dokumen kolaboratif dengan tema emas.
+Teknik: WebRTC + Y.js, Next.js Server Actions.
+
+170. PixelChain
+
+UI retro pixel blockchain. NFT marketplace dengan pixel style.
+Teknik: web3.js, MetaMask integration, Next.js App Router.
+
+171. GlowStream
+
+UI glowing audio waves. Streaming musik dengan efek glow spectrum.
+Teknik: Web Audio API, Next.js Edge deployment.
+
+172. DreamVault
+
+UI soft dreamy haze. Penyimpanan ide rahasia terenkripsi.
+Teknik: Crypto API, Next.js Server Components.
+
+173. ColorNest
+
+UI animated color egg. Generator palet warna dengan efek retak telur.
+Teknik: Canvas animation, Next.js API.
+
+174. PulseBoard Pro
+
+UI heartbeat dash. Dashboard kesehatan komunitas dengan sensor live.
+Teknik: IoT API mock, WebSocket real-time.
+
+175. GlowGallery
+
+UI neon photo wall. Galeri foto publik dengan efek light-trail.
+Teknik: Supabase Storage, Next.js App Router.
+
+176. MetaTrade
+
+UI sci-fi stock room. Simulasi trading saham dengan grafik holografik.
+Teknik: WebSocket, Next.js Server Actions, Chart.js.
+
+177. BreezeVote
+
+UI windy gradient. Voting cepat dengan efek angin animasi.
+Teknik: Supabase Realtime, Framer Motion.
+
+178. LightForge
+
+UI forging sparks. Aplikasi desain logo online dengan efek percikan api.
+Teknik: Canvas API, Next.js Server Components.
+
+179. OceanBeat
+
+UI deep sea audio. Pemutar musik dengan visualisasi ombak laut.
+Teknik: Web Audio analyser, Next.js API Routes.
+
+180. PrismChain
+
+UI multi-color blockchain. NFT gallery dengan visual prisma animasi.
+Teknik: web3.js, Next.js App Router, MetaMask login.
+
+
+181. NovaNote
+
+UI cosmic neon. Catatan pribadi dengan enkripsi end-to-end.
+Teknik: Crypto API, Next.js Server Actions, Zustand persist.
+
+182. StreamPulse
+
+UI heartbeat spectrum. Pemutar musik streaming dengan analisa beat.
+Teknik: Web Audio API, Supabase Realtime, Next.js Edge.
+
+183. GlyphQuest
+
+UI typography fantasy. Game kuis huruf & kata dengan skor live.
+Teknik: WebSocket scoreboard, Next.js API Routes.
+
+184. CloudForge
+
+UI moving cloud 3D. Penyimpanan file pribadi dengan folder drag-drop.
+Teknik: Supabase Storage, NextAuth, Three.js background.
+
+185. EchoBoard
+
+UI sound ripple pastel. Forum diskusi dengan notifikasi audio real-time.
+Teknik: Supabase Realtime, Service Worker push.
+
+186. LumenCast
+
+UI dynamic light streaks. Platform streaming video mini.
+Teknik: HLS video, Next.js Edge, Auth0.
+
+187. PrismFlow
+
+UI kaleidoscope gradient. Generator pola warna animasi.
+Teknik: Canvas kaleidoscope, Framer Motion controls.
+
+188. ArcaneDocs
+
+UI mystic runes. Editor dokumen dengan efek rune glowing.
+Teknik: WebRTC collaboration, Y.js CRDT, Next.js App Router.
+
+189. PixelHive
+
+UI retro pixel honeycomb. Social network bertema pixel art.
+Teknik: Supabase Realtime, Next.js dynamic routing.
+
+190. StarCast
+
+UI night sky constellation. Streaming podcast bertema astronomi.
+Teknik: Audio streaming, Next.js Server Components.
+
+191. ZenTrade
+
+UI calm gradient. Simulator trading saham dengan kalkulasi risiko.
+Teknik: WebSocket live price, Chart.js, Next.js API.
+
+192. GlowPress
+
+UI glass neon blog. CMS blogging dengan tema neon interaktif.
+Teknik: Next.js ISR, MDX, custom CMS dashboard.
+
+193. DreamWeave
+
+UI fantasy tapestry. Platform berbagi mimpi dengan ilustrasi AI.
+Teknik: OpenAI Image API, Prisma DB, Next.js Server Actions.
+
+194. FlowMeet
+
+UI liquid gradient. Platform meeting video real-time dengan transkrip otomatis.
+Teknik: WebRTC, Speech-to-Text API, Next.js Edge.
+
+195. PulseChain
+
+UI neon blockchain. Explorer transaksi blockchain dengan update realtime.
+Teknik: web3.js, WebSocket node, Next.js App Router.
+
+196. ColorSync
+
+UI multi-device color control. Sinkronisasi tema warna antar perangkat.
+Teknik: WebSocket multi-client, Next.js API, localStorage sync.
+
+197. AuraShop
+
+UI floating aurora particles. Marketplace produk digital eksklusif.
+Teknik: Stripe Connect, Supabase Storage, Framer Motion aurora.
+
+198. SnapQuest
+
+UI camera adventure. Aplikasi foto tantangan harian dengan leaderboard.
+Teknik: Camera API, Supabase Storage, WebSocket leaderboard.
+
+199. GlowTask
+
+UI dynamic neon board. Manajemen tugas dengan efek cahaya menyala.
+Teknik: Zustand, Next.js Server Actions, drag-and-drop.
+
+200. LunarVault
+
+UI moonlight gradient. Penyimpanan catatan rahasia terenkripsi dengan mode malam otomatis.
+Teknik: Crypto API, Next.js Edge Functions, dark/light auto theme.
+
+
+
