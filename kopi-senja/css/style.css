@@ -1,0 +1,21 @@
+/* Reset minimal supaya tampilan konsisten */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 1rem;
+}
+
+/* MODE DEBUG: garis putus-putus untuk melihat struktur */
+header  { outline: 2px dashed tomato; }
+nav     { outline: 2px dashed orange; }
+main    { outline: 2px dashed seagreen; }
+section { outline: 2px dashed royalblue; margin: 1rem 0; }
+article { outline: 2px dashed purple; margin: 0.5rem 0; }
+footer  { outline: 2px dashed gray; }
+aside   { outline: 2px dashed goldenrod; margin: 1rem 0; }
+address { outline: 2px dashed teal; }
